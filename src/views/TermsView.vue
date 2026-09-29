@@ -9,11 +9,17 @@ import { RouterLink } from 'vue-router'
       <hr class="legal-page__rule" />
 
       <h1>Terms &amp; Conditions</h1>
-      <p class="legal-page__updated">Last updated: September 2026</p>
+      <p class="legal-page__updated">Last updated: September 29, 2026</p>
 
       <div class="legal-content">
         <section aria-labelledby="terms-acceptance">
           <h2 id="terms-acceptance">Acceptance of Terms</h2>
+          <p>
+            SantaSwap is a product and DBA of KBCoding LLC. SantaSwap is a brand
+            name used by KBCoding LLC and is not a separate legal entity.
+            References to “SantaSwap,” “we,” “us,” or “our” in these Terms mean
+            KBCoding LLC, doing business as SantaSwap.
+          </p>
           <p>
             These Terms &amp; Conditions (“Terms”) govern your access to and use
             of the SantaSwap mobile application and related services (the
@@ -66,26 +72,54 @@ import { RouterLink } from 'vue-router'
         <section aria-labelledby="terms-sms">
           <h2 id="terms-sms">SMS Terms</h2>
           <p>
-            SantaSwap may send transactional and service-related SMS messages
-            associated with a Secret Santa exchange. Examples include:
+            SMS messages are sent by SantaSwap, a product and DBA of KBCoding
+            LLC. You may receive transactional, service-related SMS messages
+            related to Secret Santa exchanges you participate in. Examples
+            include:
           </p>
           <ul>
-            <li>Secret Santa assignment messages</li>
-            <li>Exchange-related notifications</li>
+            <li>Secret Santa assignments</li>
+            <li>Exchange dates</li>
+            <li>Gift budgets</li>
+            <li>Other exchange-related service notifications</li>
           </ul>
           <p>
-            Message and data rates may apply. SantaSwap’s current messaging
-            functionality is intended for Secret Santa-related service
-            communications and is not used to send marketing SMS.
+            <strong>Message frequency.</strong> Message frequency varies based on
+            your participation in SantaSwap exchanges.
           </p>
           <p>
-            For help with SantaSwap SMS messages, contact SantaSwap support.
-            Reply STOP where supported to opt out of SMS messages.
+            <strong>Costs.</strong> Message and data rates may apply.
+          </p>
+          <p>
+            <strong>Opt out.</strong> Reply <strong>STOP</strong> to any
+            SantaSwap SMS message to opt out of SMS messages.
+          </p>
+          <p>
+            <strong>Help.</strong> Reply <strong>HELP</strong> to any SantaSwap
+            SMS message for help. You can also contact SantaSwap through the
+            support/contact method provided in the application.
+          </p>
+          <p>
+            <strong>No marketing.</strong> SantaSwap does not use this SMS
+            program to send marketing or promotional messages, and SMS consent
+            is not used as permission to send unrelated marketing messages. SMS
+            consent is separate from acceptance of these Terms and our Privacy
+            Policy.
+          </p>
+          <p>
+            For information about how SantaSwap handles phone numbers and SMS
+            data, see our
+            <RouterLink to="/privacy">Privacy Policy</RouterLink>
+            (<a href="https://santaswap.us/privacy">https://santaswap.us/privacy</a>).
           </p>
         </section>
 
         <section aria-labelledby="terms-consent">
           <h2 id="terms-consent">SMS Consent</h2>
+          <p>
+            Consent to receive SantaSwap SMS messages is obtained through the
+            SantaSwap application.
+          </p>
           <p>
             Organizers should only provide phone numbers for participants when
             they have appropriate permission or consent to send the intended
@@ -194,7 +228,7 @@ import { RouterLink } from 'vue-router'
           <p>
             These Terms will be governed by applicable law, subject to the
             requirements of the jurisdiction in which the applicable user or
-            SantaSwap entity is located.
+            KBCoding LLC is located.
           </p>
         </section>
 
@@ -202,8 +236,21 @@ import { RouterLink } from 'vue-router'
           <h2 id="terms-contact">Contact</h2>
           <p>Questions about these Terms?</p>
           <p>
-            Please contact SantaSwap through the contact method provided in the
-            application.
+            SantaSwap is operated by KBCoding LLC. Please contact SantaSwap
+            through the contact method provided in the application. For help
+            with SMS messages, reply <strong>HELP</strong> to any SantaSwap SMS
+            message.
+          </p>
+          <p>
+            Website: <a href="https://santaswap.us">https://santaswap.us</a>
+          </p>
+          <p>
+            Privacy Policy:
+            <a href="https://santaswap.us/privacy">https://santaswap.us/privacy</a>
+          </p>
+          <p>
+            Terms &amp; Conditions:
+            <a href="https://santaswap.us/terms">https://santaswap.us/terms</a>
           </p>
         </section>
       </div>

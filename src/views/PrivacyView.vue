@@ -100,8 +100,7 @@ import { RouterLink } from 'vue-router'
             <li>Secret Santa assignments</li>
             <li>Exchange dates</li>
             <li>Gift budgets</li>
-            <li>Exchange-related notifications</li>
-            <li>Similar service notifications related to a Secret Santa exchange</li>
+            <li>Other exchange-related service notifications</li>
           </ul>
           <p>
             <strong>Consent.</strong> Users opt in to receive SantaSwap SMS
@@ -129,9 +128,9 @@ import { RouterLink } from 'vue-router'
             We do not sell or share your SMS opt-in data or personal information with third parties for marketing purposes.
           </p>
           <p>
-            SantaSwap does not sell or share mobile phone numbers or SMS
-            consent/opt-in information with third parties or affiliates for
-            their own marketing or promotional purposes.
+            SantaSwap does not sell, share, or provide mobile phone numbers or
+            SMS consent/messaging consent data to third parties or affiliates
+            for their own marketing or promotional purposes.
           </p>
         </section>
 
@@ -143,9 +142,9 @@ import { RouterLink } from 'vue-router'
             and other exchange-related service messages.
           </p>
           <p>
-            SantaSwap does not sell or share mobile phone numbers or SMS
-            opt-in/consent information with third parties or affiliates for
-            their own marketing or promotional purposes.
+            SantaSwap does not sell, share, or provide mobile phone numbers or
+            SMS consent/messaging consent data to third parties or affiliates
+            for their own marketing or promotional purposes.
           </p>
           <p>
             Third-party service providers may process information when necessary
@@ -212,6 +211,12 @@ import { RouterLink } from 'vue-router'
               and related operational services.
             </li>
           </ul>
+          <p>
+            Information is provided to these service providers only so they can
+            perform services for SantaSwap. Mobile phone numbers and SMS consent
+            data are not shared with these providers for their own marketing or
+            promotional purposes.
+          </p>
           <p>
             These providers have their own privacy and security practices.
             SantaSwap does not claim any certifications or security guarantees
