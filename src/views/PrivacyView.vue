@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
       <hr class="legal-page__rule" />
 
       <h1>Privacy Policy</h1>
-      <p class="legal-page__updated">Last updated: September 29, 2026</p>
+      <p class="legal-page__updated">Last updated: October 4, 2026</p>
 
       <div class="legal-content">
         <section aria-labelledby="privacy-intro">
@@ -25,8 +25,9 @@ import { RouterLink } from 'vue-router'
             application, the website at
             <a href="https://santaswap.us">https://santaswap.us</a>, and related
             services (the “Service”). SantaSwap helps people organize Secret
-            Santa gift exchanges, generate assignments, and send participants
-            private assignment messages by SMS.
+            Santa gift exchanges, generate assignments, and let each participant
+            privately view their own assignment on the SantaSwap website after
+            verifying their phone number.
           </p>
           <p>
             By using the Service, you acknowledge the practices described in this
@@ -49,9 +50,8 @@ import { RouterLink } from 'vue-router'
             <li>Secret Santa group information</li>
             <li>Secret Santa assignments</li>
             <li>
-              SMS message status information, such as whether a message was
-              submitted for delivery, a message identifier from our SMS provider,
-              and error information if a message could not be sent
+              Phone verification information, such as verification requests,
+              verification attempts, and whether verification succeeded
             </li>
             <li>Basic account and application information</li>
             <li>
@@ -62,8 +62,11 @@ import { RouterLink } from 'vue-router'
           </ul>
           <p>
             We collect this information when you create or manage an exchange,
-            add participants, generate assignments, send messages, create or use
-            an account where applicable, or otherwise interact with the Service.
+            add participants, generate assignments, create or use an account
+            where applicable, verify your phone number to view an assignment, or
+            otherwise interact with the Service. If you are a participant, your
+            name and phone number may have been provided by the organizer who
+            created the exchange.
           </p>
         </section>
 
@@ -72,104 +75,115 @@ import { RouterLink } from 'vue-router'
           <p>We use personal information for purposes such as:</p>
           <ul>
             <li>Creating and managing Secret Santa exchanges</li>
-            <li>Identifying participants</li>
+            <li>Identifying participants and associating them with an exchange</li>
             <li>Generating Secret Santa assignments</li>
             <li>
-              Sending transactional Secret Santa SMS messages, as described in
-              the SMS Messaging section below
+              Verifying control of a participant’s phone number and sending a
+              one-time verification code, as described in the SMS and Phone
+              Verification section below
             </li>
-            <li>Providing and maintaining the Service</li>
-            <li>Troubleshooting and security</li>
+            <li>
+              Displaying each participant’s own assignment after successful
+              verification, and preventing unauthorized access to it
+            </li>
+            <li>Providing, maintaining, and securing the Service</li>
+            <li>Troubleshooting</li>
             <li>Communicating with users when necessary</li>
           </ul>
           <p>
-            We do not use phone numbers or SMS consent to send marketing or
-            promotional messages.
+            We do not use phone numbers to send marketing or promotional
+            messages.
           </p>
         </section>
 
-        <section aria-labelledby="privacy-sms-program">
-          <h2 id="privacy-sms-program">SMS Messaging</h2>
+        <section aria-labelledby="privacy-sms">
+          <h2 id="privacy-sms">SMS and Phone Verification</h2>
           <p>
-            SantaSwap collects and uses phone numbers to provide its SMS
-            functionality. SantaSwap SMS messages are transactional,
-            service-related messages associated with Secret Santa exchanges.
-            Examples include:
-          </p>
-          <ul>
-            <li>Secret Santa assignments</li>
-            <li>Exchange dates</li>
-            <li>Gift budgets</li>
-            <li>Other exchange-related service notifications</li>
-          </ul>
-          <p>
-            <strong>Consent.</strong> Users opt in to receive SantaSwap SMS
-            messages through the SantaSwap application. SMS consent is separate
-            from acceptance of our Terms &amp; Conditions and this Privacy
-            Policy. SantaSwap does not use SMS consent as permission to send
-            unrelated marketing messages.
+            SantaSwap uses SMS only to verify phone numbers. SantaSwap does not
+            send Secret Santa assignments, recipient names, exchange dates, gift
+            budgets, or other exchange details by SMS. That information is
+            displayed in the SantaSwap application and on the SantaSwap website.
           </p>
           <p>
-            <strong>Message frequency.</strong> Message frequency varies based on
-            your participation in SantaSwap exchanges.
+            <strong>How phone numbers are collected.</strong> SantaSwap collects
+            participant phone numbers as part of a Secret Santa exchange. An
+            organizer may enter participant names and phone numbers when
+            creating an exchange.
+          </p>
+          <p>
+            <strong>How the invitation and verification work.</strong>
+            Participants may receive a SantaSwap invitation link from the
+            organizer. The link identifies the Secret Santa exchange but does not
+            contain the participant’s assignment. A participant must provide the
+            requested identifying information and successfully complete phone
+            verification before SantaSwap displays their private assignment.
+          </p>
+          <p>
+            Organizers share invitation links using their own messaging app,
+            email, or other method; SantaSwap does not send invitation messages.
+            Opening an invitation link does not by itself authenticate the
+            participant. On the SantaSwap website, a
+            participant enters the group invitation link or code and their phone
+            number. Before revealing the participant’s private Secret Santa
+            assignment, SantaSwap verifies control of that phone number by
+            sending a one-time verification code by SMS. The participant enters
+            the code on the SantaSwap website. Successful verification allows
+            SantaSwap to display that participant’s own private assignment.
+          </p>
+          <p>
+            <strong>Nature of the messages.</strong> Verification messages are
+            transactional, security-related messages sent at the participant’s
+            request. They contain a one-time verification code and do not contain
+            assignment information. Participants are not subscribed to recurring
+            SMS messages, and SantaSwap does not use phone numbers for marketing
+            or promotional SMS.
+          </p>
+          <p>
+            <strong>Twilio Verify.</strong> SantaSwap uses Twilio Verify to send
+            one-time verification codes by SMS when a participant verifies the
+            phone number associated with a Secret Santa exchange. To provide
+            this service, Twilio may process the participant’s phone number,
+            verification code information, message delivery information, and
+            technical information necessary to provide the verification service.
+          </p>
+          <p>
+            <strong>Message frequency.</strong> Verification messages are sent
+            only when a participant requests phone verification or needs to
+            complete the verification process. The number of verification
+            messages may vary depending on participant activity, including
+            verification attempts or requests for a new verification code.
           </p>
           <p>
             <strong>Costs.</strong> Message and data rates may apply.
           </p>
           <p>
-            <strong>Opt out.</strong> You can reply <strong>STOP</strong> to any
-            SantaSwap SMS message to opt out of SMS messages.
-          </p>
-          <p>
-            <strong>Help.</strong> You can reply <strong>HELP</strong> to any
-            SantaSwap SMS message for assistance.
+            <strong>STOP and HELP.</strong> Where supported by the messaging
+            service, recipients may reply <strong>STOP</strong> to opt out of SMS
+            messages or <strong>HELP</strong> for assistance. Opting out may
+            prevent you from receiving verification codes needed to view your
+            assignment on the SantaSwap website.
           </p>
           <p>
             We do not sell or share your SMS opt-in data or personal information with third parties for marketing purposes.
           </p>
           <p>
-            SantaSwap does not sell, share, or provide mobile phone numbers or
-            SMS consent/messaging consent data to third parties or affiliates
-            for their own marketing or promotional purposes.
-          </p>
-        </section>
-
-        <section aria-labelledby="privacy-sms">
-          <h2 id="privacy-sms">SMS and Phone Number Information</h2>
-          <p>
-            SantaSwap uses phone numbers to send the Secret Santa-related SMS
-            messages described above, such as private assignment notifications
-            and other exchange-related service messages.
-          </p>
-          <p>
-            SantaSwap does not sell, share, or provide mobile phone numbers or
-            SMS consent/messaging consent data to third parties or affiliates
-            for their own marketing or promotional purposes.
-          </p>
-          <p>
-            Third-party service providers may process information when necessary
-            to provide SantaSwap’s services. SantaSwap uses Twilio for SMS
-            delivery. Twilio may process phone numbers and message-related
-            information (such as message content, delivery status, and message
-            identifiers) as necessary to provide SMS delivery and related
-            operational services.
-          </p>
-          <p>
-            To help track delivery, SantaSwap records message status information
-            such as whether a message was submitted, a Twilio message
-            identifier, and error information. SantaSwap does not store the full
-            text of assignment SMS messages in its message status records.
+            We do not share, sell, or provide mobile phone numbers or messaging consent data to third parties or affiliates for marketing or promotional purposes.
           </p>
         </section>
 
         <section aria-labelledby="privacy-assignments">
           <h2 id="privacy-assignments">Secret Santa Assignment Privacy</h2>
           <p>
-            Secret Santa assignments are treated as private information.
-            SantaSwap uses participant assignment information to provide each
-            participant with their intended Secret Santa recipient. Each
-            assignment SMS is intended to contain only that participant’s own
-            assignment information.
+            Secret Santa assignments are treated as private information. A
+            participant can see only their own assignment. The SantaSwap website
+            does not reveal other participants’ assignments, the participant
+            list, or other participants’ phone numbers to someone viewing an
+            assignment.
+          </p>
+          <p>
+            An invitation link or group code alone is not enough to view an
+            assignment. Phone verification is part of the security mechanism
+            SantaSwap uses before displaying a participant’s assignment.
           </p>
           <p>
             Assignments are not shared with all participants by default. Whether
@@ -181,42 +195,48 @@ import { RouterLink } from 'vue-router'
         <section aria-labelledby="privacy-sharing">
           <h2 id="privacy-sharing">How We Share Information</h2>
           <p>
-            We may share information with service providers that help us operate
-            the Service (such as our SMS delivery provider), when required by
-            law, to protect rights and safety, or in connection with a business
-            transfer if KBCoding LLC’s assets related to SantaSwap are involved
-            in a merger, acquisition, or similar transaction.
+            SantaSwap may provide personal information to service providers that
+            process information on SantaSwap’s behalf to operate the Service.
+            These providers may include infrastructure, database,
+            authentication, and SMS verification providers. Such providers
+            receive information only as reasonably necessary to provide their
+            services and are not authorized to use SantaSwap’s mobile phone
+            numbers or messaging consent data for their own marketing or
+            promotional purposes.
           </p>
           <p>
-            We do not sell personal information for money. We also do not share
-            mobile phone numbers or SMS consent information with third parties
-            or affiliates for those parties’ own marketing or promotional use.
+            We may also share information when required by law, to protect
+            rights and safety, or in connection with a business transfer if
+            KBCoding LLC’s assets related to SantaSwap are involved in a merger,
+            acquisition, or similar transaction.
+          </p>
+          <p>
+            We do not sell personal information. We do not share mobile phone
+            numbers or messaging consent data with third parties or affiliates
+            for marketing or promotional purposes.
           </p>
         </section>
 
         <section aria-labelledby="privacy-third-parties">
           <h2 id="privacy-third-parties">Third-Party Services</h2>
           <p>
-            SantaSwap may use third-party service providers that are necessary to
-            operate the Service. These providers process information only as
-            needed to perform services on our behalf. Examples include:
+            SantaSwap uses the following service providers to operate the
+            Service. They process information only as needed to perform services
+            on our behalf:
           </p>
           <ul>
             <li>
               Supabase, for backend, database, and authentication infrastructure
             </li>
             <li>
-              Twilio, for SMS delivery. Twilio may process phone numbers and
-              message-related information as necessary to provide SMS delivery
-              and related operational services.
+              Twilio, for SMS phone verification through Twilio Verify, as
+              described in the SMS and Phone Verification section above
+            </li>
+            <li>
+              Apple, if you choose to sign in to the SantaSwap mobile application
+              with Sign in with Apple
             </li>
           </ul>
-          <p>
-            Information is provided to these service providers only so they can
-            perform services for SantaSwap. Mobile phone numbers and SMS consent
-            data are not shared with these providers for their own marketing or
-            promotional purposes.
-          </p>
           <p>
             These providers have their own privacy and security practices.
             SantaSwap does not claim any certifications or security guarantees
@@ -231,7 +251,8 @@ import { RouterLink } from 'vue-router'
             reasonably necessary to provide the Service, comply with legal
             obligations, resolve disputes, and enforce agreements. Retention
             periods may vary depending on the type of information and how it is
-            used.
+            used. Phone verification records and the temporary access granted
+            after verification are designed to be short-lived.
           </p>
         </section>
 
@@ -260,9 +281,10 @@ import { RouterLink } from 'vue-router'
         <section aria-labelledby="privacy-rights">
           <h2 id="privacy-rights">Your Choices and Requests</h2>
           <p>
-            You can opt out of SantaSwap SMS messages at any time by replying
-            <strong>STOP</strong> to any SantaSwap SMS message. Reply
-            <strong>HELP</strong> for assistance.
+            Where supported by the messaging service, you may reply
+            <strong>STOP</strong> to a SantaSwap verification message to opt out
+            of SMS messages, or <strong>HELP</strong> for assistance. See the SMS
+            and Phone Verification section above for details.
           </p>
           <p>
             Depending on where you live, you may have rights to request access
@@ -289,8 +311,8 @@ import { RouterLink } from 'vue-router'
           <p>
             SantaSwap is operated by KBCoding LLC. Please contact SantaSwap
             through the contact method provided in the application. For help
-            with SMS messages, reply <strong>HELP</strong> to any SantaSwap SMS
-            message.
+            with a verification message, reply <strong>HELP</strong> where
+            supported by the messaging service.
           </p>
           <p>
             Website: <a href="https://santaswap.us">https://santaswap.us</a>

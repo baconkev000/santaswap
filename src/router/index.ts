@@ -78,7 +78,7 @@ const router = createRouter({
       meta: {
         title: 'SantaSwap Privacy Policy',
         description:
-          'Read the SantaSwap Privacy Policy, including how we handle personal information and Secret Santa SMS messages.',
+          'Read the SantaSwap Privacy Policy, including how we handle personal information and SMS phone verification.',
       },
     },
     {

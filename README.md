@@ -42,8 +42,9 @@ into the public site.
 
 The backend lives in the mobile repo (`supabase/`). The website needs:
 
-- Migrations `20261004000000_group_invite_codes.sql` and
-  `20261004120000_participant_verification.sql` applied
+- Migrations `20261004000000_group_invite_codes.sql`,
+  `20261004120000_participant_verification.sql`, and
+  `20261004130000_twilio_verify.sql` applied
 - Edge Functions `draw-exchange` and `join-exchange` deployed
 - Supabase Auth → URL Configuration: add `https://santaswap.us/dashboard` (and your
   local dev URL) to the redirect allow list for sign-up confirmation emails
