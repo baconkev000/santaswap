@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+import { useAuth } from '@/composables/useAuth'
+
 const features = [
   {
     title: 'Create Your Exchange',
@@ -12,12 +15,14 @@ const features = [
     icon: 'draw',
   },
   {
-    title: 'Send the Assignments',
+    title: 'Share One Invite Link',
     description:
-      "Each participant can receive a private SMS telling them who they're buying for.",
+      "Everyone verifies their phone number on the SantaSwap website and sees only who they're buying for.",
     icon: 'send',
   },
 ] as const
+
+const { isAuthenticated } = useAuth()
 </script>
 
 <template>
@@ -25,15 +30,20 @@ const features = [
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
         <div class="hero__panel">
-          <p class="hero__eyebrow">Mobile Secret Santa</p>
+          <p class="hero__eyebrow">Secret Santa on the web and in the app</p>
           <h1 id="hero-heading">SantaSwap</h1>
           <p class="hero__tagline">Secret Santa, without the hassle.</p>
           <p class="hero__lead">
-            Create a gift exchange, add your friends and family, draw the
-            assignments, and let SantaSwap privately text everyone who they're
-            buying for.
+            Create a gift exchange, add your friends and family, draw names,
+            and share one invite link. Everyone verifies their phone number to
+            privately see who they're buying for.
           </p>
-          <a class="btn" href="#">Get SantaSwap</a>
+          <div class="row">
+            <RouterLink class="btn" :to="isAuthenticated ? '/exchanges/new' : '/signup'">
+              Start an exchange
+            </RouterLink>
+            <RouterLink class="btn btn--secondary" to="/join">Join an exchange</RouterLink>
+          </div>
         </div>
       </div>
     </section>

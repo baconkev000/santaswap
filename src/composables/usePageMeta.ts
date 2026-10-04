@@ -18,7 +18,7 @@ export function usePageMeta() {
     const title = (route.meta.title as string | undefined) ?? 'SantaSwap'
     const description =
       (route.meta.description as string | undefined) ??
-      'SantaSwap makes Secret Santa exchanges simple. Create your group, draw assignments, and privately notify everyone by text.'
+      'SantaSwap makes Secret Santa exchanges simple. Create your group, draw names, and share one invite link so everyone can privately see who they are buying for.'
 
     document.title = title
     setMetaDescription(description)

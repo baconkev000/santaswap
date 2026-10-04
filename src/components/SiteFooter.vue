@@ -13,6 +13,7 @@ import { RouterLink } from 'vue-router'
       <nav aria-label="Footer">
         <ul class="site-footer__links">
           <li><RouterLink to="/">Home</RouterLink></li>
+          <li><RouterLink to="/join">Join an Exchange</RouterLink></li>
           <li><RouterLink to="/privacy">Privacy Policy</RouterLink></li>
           <li><RouterLink to="/terms">Terms &amp; Conditions</RouterLink></li>
         </ul>
