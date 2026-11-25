@@ -132,7 +132,7 @@ function removeGroup(id: string) {
       <span>
         <strong>Don't match people within the same group</strong>
         <span class="muted check-row__hint">
-          Everyone draws someone outside their group — great for households or teams.
+          The elves will only match people outside their group — perfect for households or teams.
         </span>
       </span>
     </label>
@@ -172,11 +172,11 @@ function removeGroup(id: string) {
           </div>
         </article>
       </div>
-      <p v-else class="muted">No groups yet. Add one so SantaSwap knows who shouldn't match.</p>
+      <p v-else class="muted">No groups yet. Add one so the elves know who shouldn’t match.</p>
 
       <p v-if="unassigned.length" class="muted">
         Not in a group: {{ unassigned.map((p) => p.name).join(', ') }}. Ungrouped folks can match
-        with anyone.
+        with anyone on the nice list.
       </p>
 
       <div class="row">

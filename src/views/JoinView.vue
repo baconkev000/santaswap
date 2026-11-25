@@ -44,7 +44,7 @@ function exchangeBudget(exchange: JoinExchangeOption) {
 async function showAssignment(exchange: JoinExchangeOption) {
   selected.value = exchange
   if (!exchange.ready) {
-    error.value = "Names aren't drawn yet — check back once your organizer is ready."
+    error.value = "The elves haven't drawn yet — check back once your organizer is ready."
     step.value = 'pick'
     return
   }
@@ -118,12 +118,15 @@ onMounted(() => {
   <div class="page page--narrow">
     <div class="page-header">
       <div>
-        <h1>See who you're buying for</h1>
-        <p>Enter the phone number your organizer saved — we'll find your exchange(s).</p>
+        <h1>Who are you spoiling?</h1>
+        <p>
+          Ready for a peek? Enter the phone number your organizer saved and we’ll find your holiday
+          exchange(s).
+        </p>
       </div>
     </div>
 
-    <p v-if="step === 'loading'" class="muted" role="status">Searching the gift list…</p>
+    <p v-if="step === 'loading'" class="muted" role="status">The elves are checking the list…</p>
 
     <form v-else-if="step === 'phone'" class="card stack" novalidate @submit.prevent="lookupByPhone">
       <p v-if="error" class="alert alert--error" role="alert">{{ error }}</p>
@@ -140,7 +143,7 @@ onMounted(() => {
           aria-describedby="join-phone-hint"
         />
         <span id="join-phone-hint" class="field__hint">
-          Use the same number they added to the list.
+          Use the exact number they added to the gift list.
         </span>
       </div>
       <button class="btn btn--block" type="submit" :disabled="busy">
@@ -154,8 +157,8 @@ onMounted(() => {
 
     <section v-else-if="step === 'pick'" class="card stack" aria-labelledby="pick-heading">
       <div>
-        <h2 id="pick-heading">Which exchange?</h2>
-        <p class="muted">That number is in more than one swap this year.</p>
+        <h2 id="pick-heading">Pick your holiday swap</h2>
+        <p class="muted">That number is on more than one nice list this year.</p>
       </div>
       <p v-if="error" class="alert alert--error" role="alert">{{ error }}</p>
       <ul class="exchange-pick-list">
@@ -176,7 +179,7 @@ onMounted(() => {
               class="status-pill"
               :class="exchange.ready ? 'status-pill--drawn' : 'status-pill--ready_to_draw'"
             >
-              {{ exchange.ready ? 'Ready to peek' : 'Names still secret' }}
+              {{ exchange.ready ? 'Ready to peek' : 'Elves still drawing' }}
             </span>
           </button>
         </li>
@@ -189,14 +192,15 @@ onMounted(() => {
     <section v-else-if="step === 'assignment' && assignment" class="card assignment-reveal" aria-live="polite">
       <p class="muted">{{ assignment.groupName }}</p>
       <p class="assignment-reveal__label" style="margin-top: 1rem">
-        Hi {{ assignment.participantName }}! You're buying {{ assignment.recipients.length > 1 ? 'gifts' : 'a gift' }} for
+        Hi {{ assignment.participantName }}! You’re spoiling
+        {{ assignment.recipients.length > 1 ? 'these lucky folks' : 'this lucky person' }}:
       </p>
       <p class="assignment-reveal__name">{{ assignment.recipients.join(' & ') }}</p>
       <ul class="detail-list">
         <li v-if="assignmentBudget"><span>Budget</span><strong>{{ assignmentBudget }}</strong></li>
         <li v-if="assignment.exchangeDate"><span>Exchange date</span><strong>{{ assignment.exchangeDate }}</strong></li>
       </ul>
-      <p class="muted" style="margin-bottom: 1.25rem">Shhh — keep it secret!</p>
+      <p class="muted" style="margin-bottom: 1.25rem">Shhh — Santa’s counting on you to keep it secret!</p>
       <div class="row">
         <RouterLink class="btn btn--secondary" to="/">Back to SantaSwap</RouterLink>
         <button

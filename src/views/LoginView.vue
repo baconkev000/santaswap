@@ -42,7 +42,10 @@ async function submit() {
     <div class="page-header">
       <div>
         <h1>Welcome back</h1>
-        <p>Log in to manage your gift exchanges — same account as the SantaSwap app.</p>
+        <p>
+          Ready to run the workshop again? Log in to manage your holiday exchanges — same account as
+          the SantaSwap app.
+        </p>
       </div>
     </div>
 

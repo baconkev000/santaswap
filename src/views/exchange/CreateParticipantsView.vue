@@ -59,7 +59,7 @@ function continueNext() {
     <div class="page-header">
       <div>
         <h1>Who's in the swap?</h1>
-        <p>Add everyone taking part — including yourself, if you're playing.</p>
+        <p>Add your holiday crew — including yourself, if you’re in on the fun.</p>
       </div>
     </div>
 
@@ -72,7 +72,7 @@ function continueNext() {
     <section class="card" aria-labelledby="participants-heading">
       <h2 id="participants-heading">Gift list</h2>
       <p class="card__intro muted">
-        Each person uses this number on SantaSwap to see who they're buying for.
+        Each person uses this number on SantaSwap to peek at who they’re spoiling.
       </p>
 
       <ul v-if="participants.length" class="participant-list" style="margin-bottom: 1.25rem">

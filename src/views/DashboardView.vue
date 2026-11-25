@@ -30,8 +30,8 @@ onMounted(load)
     <div class="page-header">
       <div>
         <h1>My SantaSwap</h1>
-        <p v-if="displayName">Welcome back, {{ displayName }} — let's get wrapping.</p>
-        <p v-else>Your gift exchanges, all in one place.</p>
+        <p v-if="displayName">Welcome back, {{ displayName }} — your holiday workshop awaits.</p>
+        <p v-else>Your holiday exchanges, all in one cozy place.</p>
       </div>
       <RouterLink class="btn" to="/exchanges/new">Start a new exchange</RouterLink>
     </div>
@@ -48,7 +48,7 @@ onMounted(load)
 
       <div v-else-if="exchanges.length === 0" class="card empty-state">
         <h3>No exchanges yet</h3>
-        <p>Start your first Secret Santa and get the gift list going.</p>
+        <p>Ready to play Santa? Launch your first holiday exchange and gather the crew.</p>
         <RouterLink class="btn" to="/exchanges/new">Start a new exchange</RouterLink>
       </div>
 

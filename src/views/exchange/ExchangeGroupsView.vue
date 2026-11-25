@@ -104,7 +104,7 @@ async function persistGroups() {
         <div>
           <h2 id="groups-heading">Matching groups</h2>
           <p class="muted">
-            Optional. Stop households or teammates from drawing each other.
+            Optional elf magic: keep households or teammates from drawing each other.
           </p>
         </div>
         <p v-if="groupsMessage" class="alert alert--success" role="status">{{ groupsMessage }}</p>

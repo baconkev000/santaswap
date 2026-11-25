@@ -84,7 +84,8 @@ async function submit() {
       <div>
         <h1>Keep it fair</h1>
         <p>
-          Optional. Stop households or teammates from drawing each other, then save and draw names.
+          Optional elf magic: keep households or teammates from drawing each other, then save and
+          let the digital elves draw.
         </p>
       </div>
     </div>
@@ -98,7 +99,7 @@ async function submit() {
     <section class="card stack" aria-labelledby="groups-heading">
       <div>
         <h2 id="groups-heading">Matching groups</h2>
-        <p class="muted">People in the same group won't be paired when you draw.</p>
+        <p class="muted">People in the same group won’t get paired when the names are drawn.</p>
       </div>
 
       <MatchGroupsEditor

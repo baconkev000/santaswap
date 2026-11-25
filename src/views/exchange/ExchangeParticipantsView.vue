@@ -183,7 +183,7 @@ async function handleRemove(participant: Participant) {
     <template v-else-if="exchange">
       <div class="page-header">
         <div>
-          <h1>Who's in the swap?</h1>
+          <h1>Who’s in the swap?</h1>
           <p class="row">
             <span class="status-pill" :class="`status-pill--${exchange.status}`">
               {{ formatStatusLabel(exchange.status) }}
@@ -198,7 +198,7 @@ async function handleRemove(participant: Participant) {
       <section class="card" aria-labelledby="participants-heading">
         <h2 id="participants-heading">Gift list</h2>
         <p class="card__intro muted">
-          Everyone uses the mobile number you enter here to see who they're buying for.
+          Everyone uses the mobile number you enter here to peek at who they’re spoiling.
         </p>
         <p v-if="participantMessage" class="alert alert--success" role="status" style="margin-bottom: 1rem">
           {{ participantMessage }}
@@ -247,7 +247,7 @@ async function handleRemove(participant: Participant) {
             </template>
           </li>
         </ul>
-        <p v-else class="muted" style="margin-bottom: 1rem">No one on the list yet — add your gift crew.</p>
+        <p v-else class="muted" style="margin-bottom: 1rem">The nice list is empty — add your holiday crew.</p>
 
         <h3 style="margin-bottom: 0.75rem">Add someone</h3>
         <ParticipantForm

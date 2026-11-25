@@ -69,7 +69,7 @@ async function logOut() {
 
     <div class="card stack">
       <h2>Log out</h2>
-      <p class="muted">You'll need to log back in to manage your gift exchanges.</p>
+      <p class="muted">You’ll need to log back in to manage your holiday exchanges.</p>
       <div><button class="btn btn--secondary" type="button" @click="logOut">Log out</button></div>
     </div>
   </div>

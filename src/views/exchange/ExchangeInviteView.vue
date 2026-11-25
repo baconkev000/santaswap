@@ -64,9 +64,9 @@ async function copyInvite(event: Event) {
         <div>
           <h2 id="invite-heading">Share the invite</h2>
           <p class="muted">
-            Send this link by text, email, or group chat. Each person opens it, enters their phone
-            number, and privately sees who they're buying for — and can come back anytime with that
-            same number to peek again.
+            Send out one festive invite link by text, email, or group chat. Each person opens it,
+            enters their number, and peeks at who they’re spoiling — then can come back anytime with
+            that same number for another look.
           </p>
         </div>
         <div class="invite-box">
@@ -84,7 +84,7 @@ async function copyInvite(event: Event) {
           </button>
         </div>
         <p v-if="!drawn" class="alert alert--info">
-          Draw names before sharing — until then, the link only shows the exchange details.
+          Let the elves draw names before sharing — until then, the link only shows the exchange details.
         </p>
         <div class="row">
           <RouterLink class="btn btn--ghost" :to="`/exchanges/${exchangeId}/draw`">Back</RouterLink>

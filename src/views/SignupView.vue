@@ -51,14 +51,17 @@ async function submit() {
     <div class="page-header">
       <div>
         <h1>Host a Secret Santa</h1>
-        <p>Create a free organizer account, set up your swap, and invite everyone with one link.</p>
+        <p>
+          Ready to play Santa? Create a free organizer account, launch your holiday exchange, and
+          send one festive invite link to the whole crew.
+        </p>
       </div>
     </div>
 
     <div v-if="confirmationSentTo" class="card stack">
       <p class="alert alert--success" role="status">
         Almost there! We sent a confirmation link to <strong>{{ confirmationSentTo }}</strong>.
-        Open it to activate your account, then log in and start wrapping.
+        Open it to activate your account, then log in and let the elves get to work.
       </p>
       <RouterLink class="btn btn--block" to="/login">Go to log in</RouterLink>
     </div>

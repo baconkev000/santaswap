@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
         <span class="brand-wordmark">
           <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
         </span>
-        <p>Secret Santa magic, minus the chaos.</p>
+        <p>Secret Santa, without the hassle.</p>
       </div>
 
       <nav aria-label="Footer">

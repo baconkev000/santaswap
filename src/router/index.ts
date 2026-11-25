@@ -19,9 +19,9 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
-        title: 'SantaSwap — Secret Santa magic, minus the chaos.',
+        title: 'SantaSwap — Secret Santa, without the hassle.',
         description:
-          'Host a Secret Santa gift exchange, draw names, and share one invite link so everyone can privately see who they are buying for.',
+          'Ready to play Santa? Launch your holiday exchange, add your crew, let the digital elves draw the names, and send out one festive invite link.',
       },
     },
     {
@@ -29,9 +29,9 @@ const router = createRouter({
       name: 'join',
       component: () => import('@/views/JoinView.vue'),
       meta: {
-        title: 'See who you’re buying for — SantaSwap',
+        title: 'Who are you spoiling? — SantaSwap',
         description:
-          'Enter your phone number to privately see who you’re buying for in your SantaSwap exchange.',
+          'Enter your phone number to peek at who you are spoiling in your SantaSwap holiday exchange.',
       },
     },
     {

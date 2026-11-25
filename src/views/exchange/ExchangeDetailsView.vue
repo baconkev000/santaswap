@@ -99,7 +99,7 @@ async function handleDelete() {
       <section class="card stack" aria-labelledby="details-heading">
         <div>
           <h2 id="details-heading">The basics</h2>
-          <p class="muted">Tweaking the date or budget won't change who's buying for whom.</p>
+          <p class="muted">Tweaking the date or budget won’t change who’s spoiling whom.</p>
         </div>
         <form class="stack" novalidate @submit.prevent="saveDetails">
           <ExchangeDetailsFields v-model="details" id-prefix="edit" :budget-error="budgetError" />
@@ -117,7 +117,7 @@ async function handleDelete() {
       <section v-if="!isDrawn(exchange.status)" class="card stack" aria-labelledby="delete-heading">
         <div>
           <h2 id="delete-heading">Delete exchange</h2>
-          <p class="muted">You can scrap this exchange until names are drawn.</p>
+          <p class="muted">You can scrap this holiday swap until the elves draw the names.</p>
         </div>
         <p v-if="deleteError" class="alert alert--error" role="alert">{{ deleteError }}</p>
         <div>

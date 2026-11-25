@@ -33,7 +33,7 @@ function continueNext() {
     <div class="page-header">
       <div>
         <h1>Start your exchange</h1>
-        <p>Name it, set a date and budget, then add your gift crew.</p>
+        <p>Ready to play Santa? Name the holiday swap, pick a date and budget, then gather the crew.</p>
       </div>
     </div>
 
@@ -46,7 +46,7 @@ function continueNext() {
     <section class="card stack" aria-labelledby="details-heading">
       <div>
         <h2 id="details-heading">The basics</h2>
-        <p class="muted">A spending range helps everyone shop with confidence.</p>
+        <p class="muted">A spending range helps everyone shop without the awkward guesswork.</p>
       </div>
       <ExchangeDetailsFields v-model="details" id-prefix="create" :budget-error="budgetError" />
       <p v-if="error" class="alert alert--error" role="alert">{{ error }}</p>

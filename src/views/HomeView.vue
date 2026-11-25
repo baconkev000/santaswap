@@ -4,20 +4,20 @@ import { useAuth } from '@/composables/useAuth'
 
 const features = [
   {
-    title: 'Host your swap',
-    description: 'Name the exchange, set a budget, and add your gift crew in minutes.',
+    title: 'Launch the exchange',
+    description: 'Name your holiday swap, set a budget, and gather the crew in minutes.',
     icon: 'gift',
   },
   {
-    title: 'Draw the names',
+    title: 'Let the elves draw',
     description:
-      'SantaSwap matches everyone fairly — with optional household groups and double gifts when you need them.',
+      'Digital elves match everyone fairly — with optional household groups and double gifts when you need them.',
     icon: 'draw',
   },
   {
-    title: 'Share one invite',
+    title: 'Send one festive link',
     description:
-      "Send a single link. Each person enters their phone number and only sees who they're buying for.",
+      'Share a single invite. Everyone enters their number and only peeks at who they’re spoiling.',
     icon: 'send',
   },
 ] as const
@@ -33,11 +33,11 @@ const { isAuthenticated } = useAuth()
           <h1 id="hero-heading" class="brand-wordmark">
             <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
           </h1>
-          <p class="hero__tagline">Secret Santa magic, minus the chaos.</p>
+          <p class="hero__tagline">Secret Santa, without the hassle.</p>
           <p class="hero__lead">
-            Host a gift exchange, add your friends and family, draw names, and
-            share one invite link. Everyone enters their phone number to
-            privately see who they're buying for.
+            Ready to play Santa? Launch your holiday exchange, add your crew, let
+            the digital elves draw the names, and send out one festive invite link.
+            Everyone enters their number to peek at who they are spoiling this year!
           </p>
           <div class="row hero__actions">
             <RouterLink class="btn" :to="isAuthenticated ? '/exchanges/new' : '/signup'">
@@ -46,7 +46,7 @@ const { isAuthenticated } = useAuth()
             <RouterLink class="btn btn--secondary" to="/join">See who I'm buying for</RouterLink>
           </div>
           <p class="hero__helper muted">
-            Already invited? Pop in your phone number anytime to peek again.
+            Already on the list? Enter your phone number anytime for another peek.
           </p>
         </div>
       </div>

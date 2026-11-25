@@ -104,7 +104,7 @@ defineExpose({ reset })
       </button>
     </div>
     <p v-if="contactsSupported" class="field__hint">
-      On supported phones, pick people from your contacts. SantaSwap only gets the ones you choose.
+      On supported phones, pick your holiday crew from contacts. SantaSwap only gets the ones you choose.
     </p>
   </form>
 </template>

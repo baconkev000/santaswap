@@ -35,8 +35,8 @@ async function handleDraw() {
     const result = await drawExchange(exchangeId.value)
     await load()
       drawMessage.value = result.usedDoubleGifts
-      ? 'Names drawn with double gifts so everyone can still play.'
-      : 'Names drawn! Next up: share the invite.'
+      ? 'The elves used double gifts so everyone can still play.'
+      : 'Names drawn! Next up: send that festive invite.'
     await router.push(`/exchanges/${exchangeId.value}/invite`)
   } catch (e) {
     drawError.value = e instanceof Error ? e.message : "Couldn't draw names."
@@ -81,12 +81,13 @@ async function handleDraw() {
         <div>
           <h2 id="draw-heading">Draw names</h2>
           <p v-if="drawn" class="muted">
-            Names are locked in. Everyone sees only their own person after entering their phone number.
+            The elves have spoken! Everyone peeks at only their own person after entering their phone
+            number.
           </p>
           <p v-else-if="canDraw" class="muted">
-            Gift list ready? Draw names to match gifters and recipients.
+            Gift list ready? Let the digital elves draw the names and match gifters with recipients.
           </p>
-          <p v-else class="muted">Add at least 2 people before you can draw.</p>
+          <p v-else class="muted">Add at least 2 people before the elves can draw.</p>
         </div>
         <p v-if="drawMessage" class="alert alert--success" role="status">{{ drawMessage }}</p>
         <p v-if="drawError" class="alert alert--error" role="alert">{{ drawError }}</p>
