@@ -25,7 +25,7 @@ async function logOut() {
 <template>
   <header class="site-header">
     <div class="container site-header__inner">
-      <RouterLink class="brand-link" :to="isAuthenticated ? '/dashboard' : '/'" aria-label="SantaSwap home">
+      <RouterLink class="brand-link" to="/" aria-label="SantaSwap home">
         <span class="brand-mark" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
             <path
@@ -56,17 +56,17 @@ async function logOut() {
         <ul v-if="isAuthenticated" class="nav-links">
           <li><RouterLink to="/dashboard">Dashboard</RouterLink></li>
           <li><RouterLink to="/exchanges">My Exchanges</RouterLink></li>
-          <li><RouterLink to="/exchanges/new">Create Exchange</RouterLink></li>
+          <li><RouterLink to="/exchanges/new">New exchange</RouterLink></li>
           <li><RouterLink to="/account">Account</RouterLink></li>
           <li><button type="button" @click="logOut">Log out</button></li>
         </ul>
         <ul v-else class="nav-links">
           <li><RouterLink to="/">Home</RouterLink></li>
-          <li><RouterLink to="/join">View assignment</RouterLink></li>
+          <li><RouterLink to="/join">Who am I buying for</RouterLink></li>
           <li><RouterLink to="/privacy">Privacy</RouterLink></li>
           <li><RouterLink to="/terms">Terms</RouterLink></li>
           <li><RouterLink to="/login">Log in</RouterLink></li>
-          <li><RouterLink class="nav-cta" to="/signup">Create exchange</RouterLink></li>
+          <li><RouterLink class="nav-cta" to="/signup">Host a swap</RouterLink></li>
         </ul>
       </nav>
     </div>

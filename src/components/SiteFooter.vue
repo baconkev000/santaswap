@@ -9,14 +9,14 @@ import { RouterLink } from 'vue-router'
         <span class="brand-wordmark">
           <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
         </span>
-        <p>Secret Santa, without the hassle.</p>
+        <p>Secret Santa magic, minus the chaos.</p>
       </div>
 
       <nav aria-label="Footer">
         <ul class="site-footer__links">
           <li><RouterLink to="/">Home</RouterLink></li>
-          <li><RouterLink to="/join">View my assignment</RouterLink></li>
-          <li><RouterLink to="/signup">Create a new exchange</RouterLink></li>
+          <li><RouterLink to="/join">See who I'm buying for</RouterLink></li>
+          <li><RouterLink to="/signup">Host a Secret Santa</RouterLink></li>
           <li><RouterLink to="/privacy">Privacy Policy</RouterLink></li>
           <li><RouterLink to="/terms">Terms &amp; Conditions</RouterLink></li>
         </ul>

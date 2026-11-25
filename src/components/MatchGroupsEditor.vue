@@ -132,8 +132,7 @@ function removeGroup(id: string) {
       <span>
         <strong>Don't match people within the same group</strong>
         <span class="muted check-row__hint">
-          People will only be assigned to someone outside their group — for example different
-          households or teams.
+          Everyone draws someone outside their group — great for households or teams.
         </span>
       </span>
     </label>
@@ -149,8 +148,8 @@ function removeGroup(id: string) {
         <span>
           <strong>Allow double gifts if needed</strong>
           <span class="muted check-row__hint">
-            If a perfect one-to-one draw isn't possible with these groups, some people may give or
-            receive two gifts so everyone can still participate.
+            If a perfect one-to-one draw isn't possible, some people may give or receive two gifts
+            so everyone can still play.
           </span>
         </span>
       </label>
@@ -173,11 +172,11 @@ function removeGroup(id: string) {
           </div>
         </article>
       </div>
-      <p v-else class="muted">No groups yet. Add one so SantaSwap knows who should not match.</p>
+      <p v-else class="muted">No groups yet. Add one so SantaSwap knows who shouldn't match.</p>
 
       <p v-if="unassigned.length" class="muted">
-        Not in a group: {{ unassigned.map((p) => p.name).join(', ') }}. People without a group can
-        be assigned to anyone.
+        Not in a group: {{ unassigned.map((p) => p.name).join(', ') }}. Ungrouped folks can match
+        with anyone.
       </p>
 
       <div class="row">

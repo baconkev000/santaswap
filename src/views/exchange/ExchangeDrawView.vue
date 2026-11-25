@@ -34,9 +34,9 @@ async function handleDraw() {
   try {
     const result = await drawExchange(exchangeId.value)
     await load()
-    drawMessage.value = result.usedDoubleGifts
-      ? 'Names drawn with double gifts so everyone could participate.'
-      : 'Names drawn! Continue to share the invite link.'
+      drawMessage.value = result.usedDoubleGifts
+      ? 'Names drawn with double gifts so everyone can still play.'
+      : 'Names drawn! Next up: share the invite.'
     await router.push(`/exchanges/${exchangeId.value}/invite`)
   } catch (e) {
     drawError.value = e instanceof Error ? e.message : "Couldn't draw names."
@@ -65,7 +65,7 @@ async function handleDraw() {
     <template v-else-if="exchange">
       <div class="page-header">
         <div>
-          <h1>Draw names</h1>
+          <h1>The big draw</h1>
           <p class="row">
             <span class="status-pill" :class="`status-pill--${exchange.status}`">
               {{ formatStatusLabel(exchange.status) }}
@@ -81,13 +81,12 @@ async function handleDraw() {
         <div>
           <h2 id="draw-heading">Draw names</h2>
           <p v-if="drawn" class="muted">
-            Names have been drawn. Assignments stay private: participants see only their own after entering
-            their phone number.
+            Names are locked in. Everyone sees only their own person after entering their phone number.
           </p>
           <p v-else-if="canDraw" class="muted">
-            When everyone's been added and groups are set, draw names to create the assignments.
+            Gift list ready? Draw names to match gifters and recipients.
           </p>
-          <p v-else class="muted">Add at least 2 participants to draw names.</p>
+          <p v-else class="muted">Add at least 2 people before you can draw.</p>
         </div>
         <p v-if="drawMessage" class="alert alert--success" role="status">{{ drawMessage }}</p>
         <p v-if="drawError" class="alert alert--error" role="alert">{{ drawError }}</p>
@@ -100,10 +99,10 @@ async function handleDraw() {
             :disabled="!canDraw || drawing"
             @click="handleDraw"
           >
-            {{ drawing ? 'Drawing…' : drawn ? 'Redraw names' : 'Draw names' }}
+            {{ drawing ? 'Drawing…' : drawn ? 'Redraw names' : 'Draw names!' }}
           </button>
           <RouterLink v-if="drawn" class="btn btn--secondary" :to="`/exchanges/${exchangeId}/invite`">
-            Continue to invite
+            Share the invite
           </RouterLink>
         </div>
       </section>

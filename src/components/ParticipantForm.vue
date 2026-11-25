@@ -94,7 +94,7 @@ defineExpose({ reset })
         :disabled="busy || picking"
         @click="addFromContacts"
       >
-        {{ picking ? 'Opening contacts…' : 'Add from contacts' }}
+        {{ picking ? 'Opening contacts…' : 'Pick from contacts' }}
       </button>
       <button class="btn btn--secondary btn--small" type="submit" :disabled="busy || picking">
         {{ submitLabel }}
@@ -104,8 +104,7 @@ defineExpose({ reset })
       </button>
     </div>
     <p v-if="contactsSupported" class="field__hint">
-      On supported phones, you can pick people from your contact list. SantaSwap only receives the
-      contacts you choose.
+      On supported phones, pick people from your contacts. SantaSwap only gets the ones you choose.
     </p>
   </form>
 </template>

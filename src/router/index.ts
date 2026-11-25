@@ -19,9 +19,9 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       meta: {
-        title: 'SantaSwap — Secret Santa, without the hassle.',
+        title: 'SantaSwap — Secret Santa magic, minus the chaos.',
         description:
-          'SantaSwap makes Secret Santa exchanges simple. Create your group, draw names, and share one invite link so everyone can privately see who they are buying for.',
+          'Host a Secret Santa gift exchange, draw names, and share one invite link so everyone can privately see who they are buying for.',
       },
     },
     {
@@ -29,7 +29,7 @@ const router = createRouter({
       name: 'join',
       component: () => import('@/views/JoinView.vue'),
       meta: {
-        title: 'View your Secret Santa assignment — SantaSwap',
+        title: 'See who you’re buying for — SantaSwap',
         description:
           'Enter your phone number to privately see who you’re buying for in your SantaSwap exchange.',
       },
@@ -38,13 +38,13 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: () => import('@/views/LoginView.vue'),
-      meta: { title: 'Log in — SantaSwap', guestOnly: true },
+      meta: { title: 'Welcome back — SantaSwap', guestOnly: true },
     },
     {
       path: '/signup',
       name: 'signup',
       component: () => import('@/views/SignupView.vue'),
-      meta: { title: 'Create a new exchange — SantaSwap', guestOnly: true },
+      meta: { title: 'Host a Secret Santa — SantaSwap', guestOnly: true },
     },
     {
       path: '/dashboard',
@@ -61,19 +61,19 @@ const router = createRouter({
       path: '/exchanges/new/details',
       name: 'exchange-new-details',
       component: () => import('@/views/exchange/CreateDetailsView.vue'),
-      meta: { title: 'Exchange details — SantaSwap', requiresAuth: true },
+      meta: { title: 'Start your exchange — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/new/participants',
       name: 'exchange-new-participants',
       component: () => import('@/views/exchange/CreateParticipantsView.vue'),
-      meta: { title: 'Participants — SantaSwap', requiresAuth: true },
+      meta: { title: 'Who’s in the swap? — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/new/groups',
       name: 'exchange-new-groups',
       component: () => import('@/views/exchange/CreateGroupsView.vue'),
-      meta: { title: 'Groups — SantaSwap', requiresAuth: true },
+      meta: { title: 'Keep it fair — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/:id/view',
@@ -91,25 +91,25 @@ const router = createRouter({
       path: '/exchanges/:id/participants',
       name: 'exchange-participants',
       component: () => import('@/views/exchange/ExchangeParticipantsView.vue'),
-      meta: { title: 'Participants — SantaSwap', requiresAuth: true },
+      meta: { title: 'Who’s in the swap? — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/:id/groups',
       name: 'exchange-groups',
       component: () => import('@/views/exchange/ExchangeGroupsView.vue'),
-      meta: { title: 'Groups — SantaSwap', requiresAuth: true },
+      meta: { title: 'Keep it fair — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/:id/draw',
       name: 'exchange-draw',
       component: () => import('@/views/exchange/ExchangeDrawView.vue'),
-      meta: { title: 'Draw names — SantaSwap', requiresAuth: true },
+      meta: { title: 'The big draw — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/:id/invite',
       name: 'exchange-invite',
       component: () => import('@/views/exchange/ExchangeInviteView.vue'),
-      meta: { title: 'Invite participants — SantaSwap', requiresAuth: true },
+      meta: { title: 'Spread the cheer — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/:id',
@@ -147,7 +147,7 @@ const router = createRouter({
       name: 'not-found',
       component: () => import('@/views/NotFoundView.vue'),
       meta: {
-        title: 'Page not found — SantaSwap',
+        title: 'Gift got lost — SantaSwap',
         description: 'The page you requested could not be found.',
       },
     },

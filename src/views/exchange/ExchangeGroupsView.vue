@@ -88,7 +88,7 @@ async function persistGroups() {
     <template v-else-if="exchange">
       <div class="page-header">
         <div>
-          <h1>Groups</h1>
+          <h1>Keep it fair</h1>
           <p class="row">
             <span class="status-pill" :class="`status-pill--${exchange.status}`">
               {{ formatStatusLabel(exchange.status) }}
@@ -102,9 +102,9 @@ async function persistGroups() {
 
       <section class="card stack" aria-labelledby="groups-heading">
         <div>
-          <h2 id="groups-heading">Groups</h2>
+          <h2 id="groups-heading">Matching groups</h2>
           <p class="muted">
-            Optional. Keep people in the same household or team from drawing each other.
+            Optional. Stop households or teammates from drawing each other.
           </p>
         </div>
         <p v-if="groupsMessage" class="alert alert--success" role="status">{{ groupsMessage }}</p>
@@ -120,7 +120,7 @@ async function persistGroups() {
         />
         <div class="row">
           <RouterLink class="btn btn--ghost" :to="`/exchanges/${exchangeId}/participants`">Back</RouterLink>
-          <RouterLink class="btn" :to="`/exchanges/${exchangeId}/draw`">Continue</RouterLink>
+          <RouterLink class="btn" :to="`/exchanges/${exchangeId}/draw`">Next: draw names</RouterLink>
         </div>
       </section>
     </template>

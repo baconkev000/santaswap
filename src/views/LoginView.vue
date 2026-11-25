@@ -41,8 +41,8 @@ async function submit() {
   <div class="page page--narrow">
     <div class="page-header">
       <div>
-        <h1>Log in</h1>
-        <p>Use the same account as the SantaSwap app.</p>
+        <h1>Welcome back</h1>
+        <p>Log in to manage your gift exchanges — same account as the SantaSwap app.</p>
       </div>
     </div>
 
@@ -72,8 +72,8 @@ async function submit() {
     </form>
 
     <p class="auth-switch">
-      Want to organize a gift exchange?
-      <RouterLink to="/signup">Create a new exchange</RouterLink>
+      Ready to host?
+      <RouterLink to="/signup">Start a new exchange</RouterLink>
     </p>
   </div>
 </template>

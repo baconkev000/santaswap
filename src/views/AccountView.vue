@@ -43,7 +43,7 @@ async function logOut() {
   <div class="page page--narrow">
     <div class="page-header">
       <div>
-        <h1>Account</h1>
+        <h1>Your account</h1>
         <p>{{ displayName }}</p>
       </div>
     </div>
@@ -61,15 +61,15 @@ async function logOut() {
       <div class="field">
         <label for="account-email">Email</label>
         <input id="account-email" class="input" type="email" :value="user?.email ?? ''" disabled />
-        <span class="field__hint">Your email is used to log in on the web and in the SantaSwap app.</span>
+        <span class="field__hint">Used to log in on the web and in the SantaSwap app.</span>
       </div>
 
-      <div><button class="btn" type="submit" :disabled="saving">{{ saving ? 'Saving…' : 'Save' }}</button></div>
+      <div><button class="btn" type="submit" :disabled="saving">{{ saving ? 'Saving…' : 'Save changes' }}</button></div>
     </form>
 
     <div class="card stack">
       <h2>Log out</h2>
-      <p class="muted">You'll need to log in again to manage your exchanges.</p>
+      <p class="muted">You'll need to log back in to manage your gift exchanges.</p>
       <div><button class="btn btn--secondary" type="button" @click="logOut">Log out</button></div>
     </div>
   </div>

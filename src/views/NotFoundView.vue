@@ -5,9 +5,9 @@ import { RouterLink } from 'vue-router'
 <template>
   <section class="not-found" aria-labelledby="not-found-heading">
     <div class="container">
-      <h1 id="not-found-heading">Page not found</h1>
-      <p>The page you’re looking for doesn’t exist or may have moved.</p>
-      <RouterLink class="btn" to="/">Back to Home</RouterLink>
+      <h1 id="not-found-heading">Looks like this gift got lost</h1>
+      <p>That page doesn’t exist — or it may have moved.</p>
+      <RouterLink class="btn" to="/">Back to SantaSwap</RouterLink>
     </div>
   </section>
 </template>

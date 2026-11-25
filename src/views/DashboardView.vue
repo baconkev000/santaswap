@@ -30,9 +30,10 @@ onMounted(load)
     <div class="page-header">
       <div>
         <h1>My SantaSwap</h1>
-        <p v-if="displayName">Welcome back, {{ displayName }}.</p>
+        <p v-if="displayName">Welcome back, {{ displayName }} — let's get wrapping.</p>
+        <p v-else>Your gift exchanges, all in one place.</p>
       </div>
-      <RouterLink class="btn" to="/exchanges/new">Create a new exchange</RouterLink>
+      <RouterLink class="btn" to="/exchanges/new">Start a new exchange</RouterLink>
     </div>
 
     <section aria-labelledby="my-exchanges-heading">
@@ -47,8 +48,8 @@ onMounted(load)
 
       <div v-else-if="exchanges.length === 0" class="card empty-state">
         <h3>No exchanges yet</h3>
-        <p>Create your first Secret Santa exchange to get started.</p>
-        <RouterLink class="btn" to="/exchanges/new">Create a new exchange</RouterLink>
+        <p>Start your first Secret Santa and get the gift list going.</p>
+        <RouterLink class="btn" to="/exchanges/new">Start a new exchange</RouterLink>
       </div>
 
       <ul v-else class="exchange-grid">

@@ -58,8 +58,8 @@ function continueNext() {
     <RouterLink class="back-link" to="/exchanges/new/details">← Exchange details</RouterLink>
     <div class="page-header">
       <div>
-        <h1>Participants</h1>
-        <p>Add everyone taking part, including yourself if you're in the exchange.</p>
+        <h1>Who's in the swap?</h1>
+        <p>Add everyone taking part — including yourself, if you're playing.</p>
       </div>
     </div>
 
@@ -70,9 +70,9 @@ function continueNext() {
     />
 
     <section class="card" aria-labelledby="participants-heading">
-      <h2 id="participants-heading">Participants</h2>
+      <h2 id="participants-heading">Gift list</h2>
       <p class="card__intro muted">
-        Each person uses this number on the SantaSwap website to see their assignment.
+        Each person uses this number on SantaSwap to see who they're buying for.
       </p>
 
       <ul v-if="participants.length" class="participant-list" style="margin-bottom: 1.25rem">
@@ -90,7 +90,7 @@ function continueNext() {
       <ParticipantForm
         ref="participantForm"
         id-prefix="create-participant"
-        submit-label="Add participant"
+        submit-label="Add to the list"
         :error="participantError"
         @submit="handleAdd"
         @contacts="handleContacts"
@@ -99,7 +99,7 @@ function continueNext() {
       <p v-if="error" class="alert alert--error" role="alert" style="margin-top: 1rem">{{ error }}</p>
       <div class="row" style="margin-top: 1.25rem">
         <RouterLink class="btn btn--ghost" to="/exchanges/new/details">Back</RouterLink>
-        <button class="btn" type="button" @click="continueNext">Continue</button>
+        <button class="btn" type="button" @click="continueNext">Next: groups</button>
       </div>
     </section>
   </div>

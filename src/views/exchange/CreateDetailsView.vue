@@ -32,8 +32,8 @@ function continueNext() {
     <RouterLink class="back-link" to="/dashboard">← My Exchanges</RouterLink>
     <div class="page-header">
       <div>
-        <h1>Create an exchange</h1>
-        <p>Start with the basics. You'll add people, set groups, draw names, then share the invite.</p>
+        <h1>Start your exchange</h1>
+        <p>Name it, set a date and budget, then add your gift crew.</p>
       </div>
     </div>
 
@@ -45,13 +45,13 @@ function continueNext() {
 
     <section class="card stack" aria-labelledby="details-heading">
       <div>
-        <h2 id="details-heading">Exchange details</h2>
-        <p class="muted">Set a spending range so everyone knows what to expect.</p>
+        <h2 id="details-heading">The basics</h2>
+        <p class="muted">A spending range helps everyone shop with confidence.</p>
       </div>
       <ExchangeDetailsFields v-model="details" id-prefix="create" :budget-error="budgetError" />
       <p v-if="error" class="alert alert--error" role="alert">{{ error }}</p>
       <div>
-        <button class="btn" type="button" @click="continueNext">Continue</button>
+        <button class="btn" type="button" @click="continueNext">Next: add people</button>
       </div>
     </section>
   </div>

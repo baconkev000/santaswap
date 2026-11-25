@@ -50,15 +50,15 @@ async function submit() {
   <div class="page page--narrow">
     <div class="page-header">
       <div>
-        <h1>Create a new exchange</h1>
-        <p>Make an organizer account, then set up your Secret Santa and invite everyone with one link.</p>
+        <h1>Host a Secret Santa</h1>
+        <p>Create a free organizer account, set up your swap, and invite everyone with one link.</p>
       </div>
     </div>
 
     <div v-if="confirmationSentTo" class="card stack">
       <p class="alert alert--success" role="status">
         Almost there! We sent a confirmation link to <strong>{{ confirmationSentTo }}</strong>.
-        Open it to activate your account, then log in.
+        Open it to activate your account, then log in and start wrapping.
       </p>
       <RouterLink class="btn btn--block" to="/login">Go to log in</RouterLink>
     </div>
@@ -92,7 +92,7 @@ async function submit() {
       </div>
 
       <button class="btn btn--block" type="submit" :disabled="submitting">
-        {{ submitting ? 'Creating…' : 'Create account & continue' }}
+        {{ submitting ? 'Creating…' : 'Create account & start' }}
       </button>
 
       <p class="muted">

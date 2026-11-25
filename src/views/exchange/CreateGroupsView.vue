@@ -82,10 +82,9 @@ async function submit() {
     <RouterLink class="back-link" to="/exchanges/new/participants">← Participants</RouterLink>
     <div class="page-header">
       <div>
-        <h1>Groups</h1>
+        <h1>Keep it fair</h1>
         <p>
-          Optional. Keep households or teams from drawing each other, then create the exchange so you
-          can draw names.
+          Optional. Stop households or teammates from drawing each other, then save and draw names.
         </p>
       </div>
     </div>
@@ -98,8 +97,8 @@ async function submit() {
 
     <section class="card stack" aria-labelledby="groups-heading">
       <div>
-        <h2 id="groups-heading">Groups</h2>
-        <p class="muted">People in the same group won't be assigned to each other when you draw names.</p>
+        <h2 id="groups-heading">Matching groups</h2>
+        <p class="muted">People in the same group won't be paired when you draw.</p>
       </div>
 
       <MatchGroupsEditor
@@ -114,7 +113,7 @@ async function submit() {
       <div class="row">
         <RouterLink class="btn btn--ghost" to="/exchanges/new/participants">Back</RouterLink>
         <button class="btn" type="button" :disabled="saving" @click="submit">
-          {{ saving ? 'Creating…' : 'Create exchange & continue' }}
+          {{ saving ? 'Creating…' : 'Create exchange & draw' }}
         </button>
       </div>
     </section>

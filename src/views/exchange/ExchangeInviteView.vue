@@ -48,7 +48,7 @@ async function copyInvite(event: Event) {
     <template v-else-if="exchange">
       <div class="page-header">
         <div>
-          <h1>Invite participants</h1>
+          <h1>Spread the cheer</h1>
           <p class="row">
             <span class="status-pill" :class="`status-pill--${exchange.status}`">
               {{ formatStatusLabel(exchange.status) }}
@@ -62,11 +62,11 @@ async function copyInvite(event: Event) {
 
       <section class="card stack" aria-labelledby="invite-heading">
         <div>
-          <h2 id="invite-heading">Invite participants</h2>
+          <h2 id="invite-heading">Share the invite</h2>
           <p class="muted">
-            Share this link — by text, email, or group chat. Each person opens it, enters their phone
-            number, and privately sees who they're buying for. They can also come back later, enter that
-            same phone number on SantaSwap, and view their assignment again.
+            Send this link by text, email, or group chat. Each person opens it, enters their phone
+            number, and privately sees who they're buying for — and can come back anytime with that
+            same number to peek again.
           </p>
         </div>
         <div class="invite-box">
@@ -80,15 +80,15 @@ async function copyInvite(event: Event) {
             @focus="($event.target as HTMLInputElement).select()"
           />
           <button class="btn btn--small" type="button" @click="copyInvite">
-            {{ copied ? 'Copied!' : 'Copy link' }}
+            {{ copied ? 'Copied!' : 'Copy invite link' }}
           </button>
         </div>
         <p v-if="!drawn" class="alert alert--info">
-          Draw names before sharing. Until then, the link only shows the exchange details.
+          Draw names before sharing — until then, the link only shows the exchange details.
         </p>
         <div class="row">
           <RouterLink class="btn btn--ghost" :to="`/exchanges/${exchangeId}/draw`">Back</RouterLink>
-          <RouterLink class="btn btn--secondary" to="/dashboard">Done</RouterLink>
+          <RouterLink class="btn btn--secondary" to="/dashboard">All set!</RouterLink>
         </div>
       </section>
     </template>

@@ -44,7 +44,7 @@ function exchangeBudget(exchange: JoinExchangeOption) {
 async function showAssignment(exchange: JoinExchangeOption) {
   selected.value = exchange
   if (!exchange.ready) {
-    error.value = "Your organizer hasn't drawn names yet. Check back once the exchange is ready."
+    error.value = "Names aren't drawn yet — check back once your organizer is ready."
     step.value = 'pick'
     return
   }
@@ -118,12 +118,12 @@ onMounted(() => {
   <div class="page page--narrow">
     <div class="page-header">
       <div>
-        <h1>View your assignment</h1>
-        <p>Enter the phone number your organizer saved for you to see who you're buying for.</p>
+        <h1>See who you're buying for</h1>
+        <p>Enter the phone number your organizer saved — we'll find your exchange(s).</p>
       </div>
     </div>
 
-    <p v-if="step === 'loading'" class="muted" role="status">Looking up your exchanges…</p>
+    <p v-if="step === 'loading'" class="muted" role="status">Searching the gift list…</p>
 
     <form v-else-if="step === 'phone'" class="card stack" novalidate @submit.prevent="lookupByPhone">
       <p v-if="error" class="alert alert--error" role="alert">{{ error }}</p>
@@ -140,22 +140,22 @@ onMounted(() => {
           aria-describedby="join-phone-hint"
         />
         <span id="join-phone-hint" class="field__hint">
-          Use the exact number your organizer added to the exchange.
+          Use the same number they added to the list.
         </span>
       </div>
       <button class="btn btn--block" type="submit" :disabled="busy">
-        {{ busy ? 'Looking up…' : 'Find my exchange(s)' }}
+        {{ busy ? 'Searching…' : 'Find my exchange(s)' }}
       </button>
       <p class="muted">
-        Organizing instead?
-        <RouterLink to="/signup">Create a new exchange</RouterLink>
+        Hosting instead?
+        <RouterLink to="/signup">Start a new exchange</RouterLink>
       </p>
     </form>
 
     <section v-else-if="step === 'pick'" class="card stack" aria-labelledby="pick-heading">
       <div>
-        <h2 id="pick-heading">Choose an exchange</h2>
-        <p class="muted">We found more than one gift exchange for that number.</p>
+        <h2 id="pick-heading">Which exchange?</h2>
+        <p class="muted">That number is in more than one swap this year.</p>
       </div>
       <p v-if="error" class="alert alert--error" role="alert">{{ error }}</p>
       <ul class="exchange-pick-list">
@@ -176,13 +176,13 @@ onMounted(() => {
               class="status-pill"
               :class="exchange.ready ? 'status-pill--drawn' : 'status-pill--ready_to_draw'"
             >
-              {{ exchange.ready ? 'Ready to view' : 'Not drawn yet' }}
+              {{ exchange.ready ? 'Ready to peek' : 'Names still secret' }}
             </span>
           </button>
         </li>
       </ul>
       <button class="btn btn--ghost btn--small" type="button" :disabled="busy" @click="useDifferentNumber">
-        Use a different number
+        Try a different number
       </button>
     </section>
 
@@ -196,7 +196,7 @@ onMounted(() => {
         <li v-if="assignmentBudget"><span>Budget</span><strong>{{ assignmentBudget }}</strong></li>
         <li v-if="assignment.exchangeDate"><span>Exchange date</span><strong>{{ assignment.exchangeDate }}</strong></li>
       </ul>
-      <p class="muted" style="margin-bottom: 1.25rem">Keep it secret!</p>
+      <p class="muted" style="margin-bottom: 1.25rem">Shhh — keep it secret!</p>
       <div class="row">
         <RouterLink class="btn btn--secondary" to="/">Back to SantaSwap</RouterLink>
         <button
@@ -205,7 +205,7 @@ onMounted(() => {
           type="button"
           @click="step = 'pick'"
         >
-          Other exchanges
+          My other exchanges
         </button>
       </div>
     </section>

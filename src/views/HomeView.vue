@@ -4,20 +4,20 @@ import { useAuth } from '@/composables/useAuth'
 
 const features = [
   {
-    title: 'Create Your Exchange',
-    description: 'Set up a Secret Santa group and add everyone in seconds.',
+    title: 'Host your swap',
+    description: 'Name the exchange, set a budget, and add your gift crew in minutes.',
     icon: 'gift',
   },
   {
-    title: 'Draw Names',
+    title: 'Draw the names',
     description:
-      'SantaSwap handles the assignments and supports optional subgroup restrictions and double gifts.',
+      'SantaSwap matches everyone fairly — with optional household groups and double gifts when you need them.',
     icon: 'draw',
   },
   {
-    title: 'Share One Invite Link',
+    title: 'Share one invite',
     description:
-      "Everyone opens the link or comes back later with their phone number to see only who they're buying for.",
+      "Send a single link. Each person enters their phone number and only sees who they're buying for.",
     icon: 'send',
   },
 ] as const
@@ -33,20 +33,20 @@ const { isAuthenticated } = useAuth()
           <h1 id="hero-heading" class="brand-wordmark">
             <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
           </h1>
-          <p class="hero__tagline">Secret Santa, without the hassle.</p>
+          <p class="hero__tagline">Secret Santa magic, minus the chaos.</p>
           <p class="hero__lead">
-            Create a gift exchange, add your friends and family, draw names,
-            and share one invite link. Everyone enters their phone number to
+            Host a gift exchange, add your friends and family, draw names, and
+            share one invite link. Everyone enters their phone number to
             privately see who they're buying for.
           </p>
           <div class="row hero__actions">
             <RouterLink class="btn" :to="isAuthenticated ? '/exchanges/new' : '/signup'">
-              Create a new exchange
+              Host a Secret Santa
             </RouterLink>
-            <RouterLink class="btn btn--secondary" to="/join">View my assignment</RouterLink>
+            <RouterLink class="btn btn--secondary" to="/join">See who I'm buying for</RouterLink>
           </div>
           <p class="hero__helper muted">
-            Already invited? Enter your phone number to see who you're buying for again.
+            Already invited? Pop in your phone number anytime to peek again.
           </p>
         </div>
       </div>

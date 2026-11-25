@@ -148,9 +148,9 @@ watch(
         <div>
           <h2 id="overview-participants">Participants</h2>
           <p v-if="drawn" class="muted">
-            Click the eye next to someone to see who they're buying for. Keep it secret!
+            Tap the eye next to someone to peek at who they're buying for. Shhh!
           </p>
-          <p v-else class="muted">Names haven't been drawn yet, so assignments aren't available.</p>
+          <p v-else class="muted">Names aren't drawn yet — no peeking until then.</p>
         </div>
 
         <p v-if="assignmentsLoading" class="muted" role="status">Loading assignments…</p>

@@ -83,5 +83,5 @@ export function formatBudgetRange(minimum?: number | null, maximum?: number | nu
 }
 
 export function formatParticipantCount(count: number): string {
-  return count === 1 ? '1 participant' : `${count} participants`
+  return count === 1 ? '1 person' : `${count} people`
 }

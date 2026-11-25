@@ -183,7 +183,7 @@ async function handleRemove(participant: Participant) {
     <template v-else-if="exchange">
       <div class="page-header">
         <div>
-          <h1>Participants</h1>
+          <h1>Who's in the swap?</h1>
           <p class="row">
             <span class="status-pill" :class="`status-pill--${exchange.status}`">
               {{ formatStatusLabel(exchange.status) }}
@@ -196,9 +196,9 @@ async function handleRemove(participant: Participant) {
       <ExchangeStepNav current="participants" :base-path="`/exchanges/${exchangeId}`" />
 
       <section class="card" aria-labelledby="participants-heading">
-        <h2 id="participants-heading">Participants</h2>
+        <h2 id="participants-heading">Gift list</h2>
         <p class="card__intro muted">
-          Participants use the mobile number you enter here to view their assignment.
+          Everyone uses the mobile number you enter here to see who they're buying for.
         </p>
         <p v-if="participantMessage" class="alert alert--success" role="status" style="margin-bottom: 1rem">
           {{ participantMessage }}
@@ -247,13 +247,13 @@ async function handleRemove(participant: Participant) {
             </template>
           </li>
         </ul>
-        <p v-else class="muted" style="margin-bottom: 1rem">No participants yet.</p>
+        <p v-else class="muted" style="margin-bottom: 1rem">No one on the list yet — add your gift crew.</p>
 
-        <h3 style="margin-bottom: 0.75rem">Add a participant</h3>
+        <h3 style="margin-bottom: 0.75rem">Add someone</h3>
         <ParticipantForm
           ref="participantForm"
           id-prefix="add-participant"
-          submit-label="Add participant"
+          submit-label="Add to the list"
           :error="addError"
           :busy="participantBusy"
           @submit="handleAdd"
@@ -262,7 +262,7 @@ async function handleRemove(participant: Participant) {
 
         <div class="row" style="margin-top: 1.25rem">
           <RouterLink class="btn btn--ghost" :to="`/exchanges/${exchangeId}/details`">Back</RouterLink>
-          <RouterLink class="btn" :to="`/exchanges/${exchangeId}/groups`">Continue</RouterLink>
+          <RouterLink class="btn" :to="`/exchanges/${exchangeId}/groups`">Next: groups</RouterLink>
         </div>
       </section>
     </template>

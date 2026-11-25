@@ -11,11 +11,11 @@ const props = defineProps<{
 }>()
 
 const steps: Array<{ id: ExchangeStep; label: string; number: number }> = [
-  { id: 'details', label: 'Details', number: 1 },
-  { id: 'participants', label: 'Participants', number: 2 },
+  { id: 'details', label: 'Basics', number: 1 },
+  { id: 'participants', label: 'People', number: 2 },
   { id: 'groups', label: 'Groups', number: 3 },
-  { id: 'draw', label: 'Draw names', number: 4 },
-  { id: 'invite', label: 'Invite', number: 5 },
+  { id: 'draw', label: 'Draw', number: 4 },
+  { id: 'invite', label: 'Share', number: 5 },
 ]
 
 function hrefFor(step: ExchangeStep) {
