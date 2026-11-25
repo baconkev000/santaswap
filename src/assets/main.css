@@ -146,6 +146,9 @@
 .hero__panel {
   position: relative;
   overflow: hidden;
+  display: grid;
+  justify-items: center;
+  text-align: center;
   background:
     radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.95) 0%, transparent 35%),
     radial-gradient(circle at 0% 100%, rgba(31, 107, 74, 0.1) 0%, transparent 40%),
@@ -187,17 +190,6 @@
   font-size: clamp(2.4rem, 6vw, 3.75rem);
 }
 
-.hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin-bottom: 1rem;
-  color: var(--color-accent);
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-}
-
 .hero h1 {
   margin-bottom: 0.75rem;
 }
@@ -213,6 +205,10 @@
   max-width: 38rem;
   margin-bottom: 2rem;
   font-size: 1.1rem;
+}
+
+.hero__actions {
+  justify-content: center;
 }
 
 .hero__helper {

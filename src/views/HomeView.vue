@@ -30,7 +30,6 @@ const { isAuthenticated } = useAuth()
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
         <div class="hero__panel">
-          <p class="hero__eyebrow">Secret Santa on the web and in the app</p>
           <h1 id="hero-heading" class="brand-wordmark">
             <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
           </h1>
@@ -40,7 +39,7 @@ const { isAuthenticated } = useAuth()
             and share one invite link. Everyone enters their phone number to
             privately see who they're buying for.
           </p>
-          <div class="row">
+          <div class="row hero__actions">
             <RouterLink class="btn" :to="isAuthenticated ? '/exchanges/new' : '/signup'">
               Create a new exchange
             </RouterLink>
