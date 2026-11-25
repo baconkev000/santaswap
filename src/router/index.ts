@@ -31,7 +31,7 @@ const router = createRouter({
       meta: {
         title: 'View your Secret Santa assignment — SantaSwap',
         description:
-          'Open your organizer’s invite link again anytime to privately see who you’re buying for.',
+          'Enter your phone number to privately see who you’re buying for in your SantaSwap exchange.',
       },
     },
     {
@@ -129,7 +129,7 @@ const router = createRouter({
       meta: {
         title: 'SantaSwap Privacy Policy',
         description:
-          'Read the SantaSwap Privacy Policy, including how we handle personal information and SMS phone verification.',
+          'Read the SantaSwap Privacy Policy, including how we handle names, phone numbers, and Secret Santa assignment information.',
       },
     },
     {
@@ -139,7 +139,7 @@ const router = createRouter({
       meta: {
         title: 'SantaSwap Terms & Conditions',
         description:
-          'Read the SantaSwap Terms & Conditions, including SMS terms and acceptable use of the service.',
+          'Read the SantaSwap Terms & Conditions, including acceptable use of the service.',
       },
     },
     {

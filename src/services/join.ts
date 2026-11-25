@@ -1,11 +1,13 @@
 import { api } from '@/lib/api'
 
-export type JoinGroupInfo = {
+export type JoinExchangeOption = {
+  id: string
   name: string
   exchangeDate: string | null
   minimumBudget: number | null
   maximumBudget: number | null
   ready: boolean
+  participantName: string
 }
 
 export type ParticipantAssignment = {
@@ -40,20 +42,29 @@ export function normalizeInviteCode(value: string): string | null {
   return INVITE_CODE_PATTERN.test(code) ? code : null
 }
 
-export async function lookupExchange(code: string): Promise<JoinGroupInfo> {
-  const result = await api<{ group: JoinGroupInfo }>('/api/join', {
-    body: { action: 'lookup', code },
+export async function listExchangesForPhone(
+  phone: string,
+  code?: string | null,
+): Promise<JoinExchangeOption[]> {
+  const result = await api<{ exchanges: JoinExchangeOption[] }>('/api/join', {
+    body: { action: 'list', phone, ...(code ? { code } : {}) },
     auth: false,
   })
-  return result.group
+  return result.exchanges
 }
 
-export async function revealAssignment(
-  code: string,
-  phone: string,
-): Promise<ParticipantAssignment> {
+export async function revealAssignment(options: {
+  phone: string
+  groupId?: string
+  code?: string | null
+}): Promise<ParticipantAssignment> {
   const result = await api<{ assignment: ParticipantAssignment }>('/api/join', {
-    body: { action: 'reveal', code, phone },
+    body: {
+      action: 'reveal',
+      phone: options.phone,
+      ...(options.groupId ? { groupId: options.groupId } : {}),
+      ...(options.code ? { code: options.code } : {}),
+    },
     auth: false,
   })
   return result.assignment

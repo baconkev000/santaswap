@@ -11,7 +11,7 @@ import { RouterLink } from 'vue-router'
       <hr class="legal-page__rule" />
 
       <h1>Terms &amp; Conditions</h1>
-      <p class="legal-page__updated">Last updated: September 29, 2026</p>
+      <p class="legal-page__updated">Last updated: November 25, 2026</p>
 
       <div class="legal-content">
         <section aria-labelledby="terms-acceptance">
@@ -24,8 +24,8 @@ import { RouterLink } from 'vue-router'
           </p>
           <p>
             These Terms &amp; Conditions (“Terms”) govern your access to and use
-            of the SantaSwap mobile application and related services (the
-            “Service”). By accessing or using SantaSwap, you agree to these
+            of the SantaSwap website, mobile application, and related services
+            (the “Service”). By accessing or using SantaSwap, you agree to these
             Terms. If you do not agree, do not use the Service.
           </p>
         </section>
@@ -34,10 +34,17 @@ import { RouterLink } from 'vue-router'
           <h2 id="terms-service">Description of Service</h2>
           <p>
             SantaSwap is a tool that helps users organize Secret Santa gift
-            exchanges. Organizers can create exchanges, add participants, set
-            optional gift-budget information and exchange dates, generate
-            assignments, and communicate assignments to participants, including
-            by SMS.
+            exchanges. Organizers can create exchanges, add participants (including
+            names and phone numbers), set optional gift-budget information and
+            exchange dates, generate assignments, share an invitation link, and
+            allow participants to privately view their own assignments on the
+            SantaSwap website.
+          </p>
+          <p>
+            SantaSwap does not send assignments or exchange details by SMS or
+            other text message. Assignments are shown in the Service after a
+            participant provides the phone number associated with their entry in
+            the exchange.
           </p>
           <p>
             SantaSwap provides software features for organizing exchanges. It is
@@ -52,111 +59,54 @@ import { RouterLink } from 'vue-router'
           <ul>
             <li>Providing accurate information</li>
             <li>
-              Having appropriate permission to provide participant contact
-              information
+              Having appropriate permission to provide participant names and
+              phone numbers
             </li>
             <li>Using the Service lawfully</li>
-            <li>Not abusing the SMS functionality</li>
             <li>
-              Not using the Service for spam or unsolicited marketing
+              Not using the Service for spam, harassment, fraud, or unsolicited
+              marketing
             </li>
             <li>
               Keeping account information secure where an account is used
             </li>
           </ul>
           <p>
+            Organizers should only enter another person’s contact information when
+            they have an appropriate basis to do so for organizing the exchange.
+            Entering another person’s phone number into SantaSwap does not, by
+            itself, mean SantaSwap will contact that person by SMS.
+          </p>
+          <p>
             You agree not to interfere with the operation of the Service, attempt
             unauthorized access, or use SantaSwap in any way that could harm
-            other users, carriers, or service providers.
+            other users or service providers.
           </p>
         </section>
 
-        <section aria-labelledby="terms-sms">
-          <h2 id="terms-sms">SMS Terms</h2>
-          <p>
-            SMS messages are sent by SantaSwap, a product and DBA of KBCoding
-            LLC. You may receive transactional, service-related SMS messages
-            related to Secret Santa exchanges you participate in. Examples
-            include:
-          </p>
+        <section aria-labelledby="terms-acceptable-use">
+          <h2 id="terms-acceptable-use">Acceptable Use</h2>
+          <p>Users may not use SantaSwap to:</p>
           <ul>
-            <li>Secret Santa assignments</li>
-            <li>Exchange dates</li>
-            <li>Gift budgets</li>
-            <li>Other exchange-related service notifications</li>
+            <li>Harass, abuse, or impersonate others</li>
+            <li>Submit fraudulent or illegal content</li>
+            <li>Attempt to access another participant’s assignment without authorization</li>
+            <li>Probe, scrape, or overload the Service in a way that harms it</li>
+            <li>Violate applicable law</li>
           </ul>
           <p>
-            <strong>Message frequency.</strong> Message frequency varies based on
-            your participation in SantaSwap exchanges.
+            SantaSwap reserves the right to restrict or terminate access to the
+            Service for abuse or violations of these Terms.
           </p>
+        </section>
+
+        <section aria-labelledby="terms-privacy">
+          <h2 id="terms-privacy">Privacy</h2>
           <p>
-            <strong>Costs.</strong> Message and data rates may apply.
-          </p>
-          <p>
-            <strong>Opt out.</strong> Reply <strong>STOP</strong> to any
-            SantaSwap SMS message to opt out of SMS messages.
-          </p>
-          <p>
-            <strong>Help.</strong> Reply <strong>HELP</strong> to any SantaSwap
-            SMS message for help. You can also contact SantaSwap through the
-            support/contact method provided in the application.
-          </p>
-          <p>
-            <strong>No marketing.</strong> SantaSwap does not use this SMS
-            program to send marketing or promotional messages, and SMS consent
-            is not used as permission to send unrelated marketing messages. SMS
-            consent is separate from acceptance of these Terms and our Privacy
-            Policy.
-          </p>
-          <p>
-            For information about how SantaSwap handles phone numbers and SMS
-            data, see our
+            How SantaSwap collects and uses information, including names and phone
+            numbers, is described in our
             <RouterLink to="/privacy">Privacy Policy</RouterLink>
             (<a href="https://santaswap.us/privacy">https://santaswap.us/privacy</a>).
-          </p>
-        </section>
-
-        <section aria-labelledby="terms-consent">
-          <h2 id="terms-consent">SMS Consent</h2>
-          <p>
-            Consent to receive SantaSwap SMS messages is obtained through the
-            SantaSwap application.
-          </p>
-          <p>
-            Organizers should only provide phone numbers for participants when
-            they have appropriate permission or consent to send the intended
-            service-related messages.
-          </p>
-          <p>
-            Entering another person’s phone number into SantaSwap does not, by
-            itself, prove that the person has consented to receive messages.
-            Organizers are responsible for ensuring that participant contact
-            information is provided and used appropriately.
-          </p>
-        </section>
-
-        <section aria-labelledby="terms-antispam">
-          <h2 id="terms-antispam">Acceptable Messaging Use</h2>
-          <p>
-            SantaSwap’s messaging functionality is intended for legitimate
-            Secret Santa-related communications. Users may not use SantaSwap to
-            send:
-          </p>
-          <ul>
-            <li>Spam</li>
-            <li>Harassing messages</li>
-            <li>Fraudulent messages</li>
-            <li>Unsolicited marketing</li>
-            <li>Illegal content</li>
-            <li>
-              Messages designed to evade carrier or messaging-provider
-              restrictions
-            </li>
-          </ul>
-          <p>
-            SantaSwap reserves the right to restrict or terminate messaging
-            functionality, or access to the Service, for abuse or violations of
-            these Terms.
           </p>
         </section>
 
@@ -164,11 +114,10 @@ import { RouterLink } from 'vue-router'
           <h2 id="terms-third-parties">Third-Party Services</h2>
           <p>
             SantaSwap relies on third-party infrastructure providers to operate
-            the Service, including providers used for backend infrastructure and
-            SMS delivery. Those providers’ services may be subject to their own
-            terms and policies. SantaSwap does not reproduce third-party terms
-            here, and your use of third-party services may be governed by those
-            separate terms.
+            the Service, including hosting and database providers. Those
+            providers’ services may be subject to their own terms and policies.
+            SantaSwap does not reproduce third-party terms here, and your use of
+            third-party services may be governed by those separate terms.
           </p>
         </section>
 
@@ -195,7 +144,7 @@ import { RouterLink } from 'vue-router'
             Without limiting the foregoing, SantaSwap is not responsible for
             gifts, purchases, delivery of gifts, interpersonal disputes among
             participants, or the outcome of any Secret Santa exchange. The
-            Service is a tool for organizing exchanges and communicating
+            Service is a tool for organizing exchanges and displaying
             assignments.
           </p>
           <p>
@@ -239,9 +188,7 @@ import { RouterLink } from 'vue-router'
           <p>Questions about these Terms?</p>
           <p>
             SantaSwap is operated by KBCoding LLC. Please contact SantaSwap
-            through the contact method provided in the application. For help
-            with SMS messages, reply <strong>HELP</strong> to any SantaSwap SMS
-            message.
+            through the contact method provided in the application.
           </p>
           <p>
             Website: <a href="https://santaswap.us">https://santaswap.us</a>

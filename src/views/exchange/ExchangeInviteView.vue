@@ -64,9 +64,9 @@ async function copyInvite(event: Event) {
         <div>
           <h2 id="invite-heading">Invite participants</h2>
           <p class="muted">
-            Share this link only — by text, email, or group chat. Each person opens it, enters their phone
-            number, and privately sees who they're buying for. They can reuse the same link anytime to
-            view their assignment again.
+            Share this link — by text, email, or group chat. Each person opens it, enters their phone
+            number, and privately sees who they're buying for. They can also come back later, enter that
+            same phone number on SantaSwap, and view their assignment again.
           </p>
         </div>
         <div class="invite-box">

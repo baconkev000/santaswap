@@ -17,7 +17,7 @@ const features = [
   {
     title: 'Share One Invite Link',
     description:
-      "Everyone opens the link, enters their phone number, and sees only who they're buying for — and can reopen that same link anytime.",
+      "Everyone opens the link or comes back later with their phone number to see only who they're buying for.",
     icon: 'send',
   },
 ] as const
@@ -46,8 +46,7 @@ const { isAuthenticated } = useAuth()
             <RouterLink class="btn btn--secondary" to="/join">View my assignment</RouterLink>
           </div>
           <p class="hero__helper muted">
-            Already invited? Use the original link your organizer sent you to see who you're buying for
-            again.
+            Already invited? Enter your phone number to see who you're buying for again.
           </p>
         </div>
       </div>
