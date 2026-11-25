@@ -31,7 +31,9 @@ const { isAuthenticated } = useAuth()
       <div class="container">
         <div class="hero__panel">
           <p class="hero__eyebrow">Secret Santa on the web and in the app</p>
-          <h1 id="hero-heading">SantaSwap</h1>
+          <h1 id="hero-heading" class="brand-wordmark">
+            <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
+          </h1>
           <p class="hero__tagline">Secret Santa, without the hassle.</p>
           <p class="hero__lead">
             Create a gift exchange, add your friends and family, draw names,

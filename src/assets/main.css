@@ -36,15 +36,17 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  color: var(--color-heading);
+  color: inherit;
   text-decoration: none;
-  font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 700;
 }
 
-.brand-link:hover {
-  color: var(--color-accent);
+.brand-link:hover .brand-wordmark__santa {
+  color: var(--color-accent-hover);
+}
+
+.brand-link:hover .brand-wordmark__swap {
+  background: var(--color-pine-hover);
 }
 
 .brand-mark {
@@ -53,10 +55,16 @@
   width: 2rem;
   height: 2rem;
   border-radius: 999px;
-  background: var(--color-accent-soft);
+  background: linear-gradient(135deg, var(--color-accent) 0 50%, var(--color-snow) 50% 100%);
   color: var(--color-accent);
   font-size: 1rem;
   line-height: 1;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.65);
+}
+
+.brand-mark svg {
+  color: var(--color-snow);
+  filter: drop-shadow(1px 0 0 var(--color-accent));
 }
 
 .nav-links {
@@ -82,7 +90,9 @@
 .site-footer {
   margin-top: 4rem;
   border-top: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.7);
+  background:
+    linear-gradient(180deg, rgba(255, 248, 246, 0.65), rgba(255, 255, 255, 0.92)),
+    rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
 }
 
@@ -97,10 +107,8 @@
   gap: 0.35rem;
 }
 
-.site-footer__brand strong {
-  font-family: var(--font-display);
+.site-footer__brand .brand-wordmark {
   font-size: 1.25rem;
-  color: var(--color-heading);
 }
 
 .site-footer__brand p {
@@ -138,7 +146,10 @@
 .hero__panel {
   position: relative;
   overflow: hidden;
-  background: var(--color-bg-elevated);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.95) 0%, transparent 35%),
+    radial-gradient(circle at 0% 100%, rgba(31, 107, 74, 0.1) 0%, transparent 40%),
+    linear-gradient(160deg, #fff 0%, #fff5f4 55%, #eef8f2 100%);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
@@ -150,8 +161,30 @@
   position: absolute;
   inset: 0 auto auto 0;
   width: 100%;
-  height: 5px;
-  background: linear-gradient(90deg, var(--color-accent), #2f8f64 45%, var(--color-berry));
+  height: 8px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-accent) 0 18px,
+    var(--color-snow) 18px 34px,
+    var(--color-pine) 34px 52px,
+    var(--color-snow) 52px 68px
+  );
+}
+
+.hero__panel::after {
+  content: '';
+  position: absolute;
+  right: -2rem;
+  bottom: -3rem;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196, 30, 58, 0.12), transparent 70%);
+  pointer-events: none;
+}
+
+.hero .brand-wordmark {
+  font-size: clamp(2.4rem, 6vw, 3.75rem);
 }
 
 .hero__eyebrow {
@@ -241,9 +274,17 @@
   height: 2.5rem;
   margin-bottom: 1rem;
   border-radius: 12px;
-  background: var(--color-accent-soft);
+  background: linear-gradient(145deg, var(--color-accent-soft), var(--color-pine-soft));
   color: var(--color-accent);
   font-size: 1.15rem;
+}
+
+.feature-card:nth-child(2) .feature-card__icon {
+  color: var(--color-pine);
+}
+
+.feature-card:nth-child(3) .feature-card__icon {
+  color: var(--color-gold);
 }
 
 .feature-card h3 {
@@ -260,15 +301,16 @@
 
 .legal-page__brand {
   margin-bottom: 1.25rem;
-  font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-heading);
   text-decoration: none;
 }
 
-.legal-page__brand:hover {
-  color: var(--color-accent);
+.legal-page__brand:hover .brand-wordmark__santa {
+  color: var(--color-accent-hover);
+}
+
+.legal-page__brand:hover .brand-wordmark__swap {
+  background: var(--color-pine-hover);
 }
 
 .legal-page__rule {

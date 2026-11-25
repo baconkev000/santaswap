@@ -5,7 +5,9 @@ import { RouterLink } from 'vue-router'
 <template>
   <article class="legal-page">
     <div class="prose-container">
-      <RouterLink class="legal-page__brand" to="/">SantaSwap</RouterLink>
+      <RouterLink class="legal-page__brand brand-wordmark" to="/">
+        <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
+      </RouterLink>
       <hr class="legal-page__rule" />
 
       <h1>Privacy Policy</h1>

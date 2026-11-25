@@ -26,6 +26,22 @@ function handleAdd(input: ParticipantInput) {
   participantForm.value?.reset()
 }
 
+function handleContacts(contacts: ParticipantInput[]) {
+  participantError.value = ''
+  const skipped: string[] = []
+  for (const contact of contacts) {
+    const problem = validateParticipant(contact, participants.value)
+    if (problem) {
+      skipped.push(contact.name.trim() || contact.phoneNumber)
+      continue
+    }
+    addParticipant(contact)
+  }
+  if (skipped.length) {
+    participantError.value = `Skipped ${skipped.join(', ')} — already added or missing a valid number.`
+  }
+}
+
 function continueNext() {
   error.value = ''
   if (participants.value.length < 2) {
@@ -77,6 +93,7 @@ function continueNext() {
         submit-label="Add participant"
         :error="participantError"
         @submit="handleAdd"
+        @contacts="handleContacts"
       />
 
       <p v-if="error" class="alert alert--error" role="alert" style="margin-top: 1rem">{{ error }}</p>

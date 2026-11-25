@@ -142,13 +142,13 @@
 }
 
 .btn--secondary {
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
+  background: var(--color-pine-soft);
+  color: var(--color-pine);
 }
 
 .btn--secondary:hover {
-  background: #d6eadd;
-  color: var(--color-accent-hover);
+  background: #d5efe2;
+  color: var(--color-pine-hover);
 }
 
 .btn--ghost {
@@ -193,9 +193,9 @@
 }
 
 .alert--success {
-  background: var(--color-accent-soft);
-  border-color: #c5e0cf;
-  color: #17543a;
+  background: var(--color-pine-soft);
+  border-color: #b7dfc9;
+  color: var(--color-pine-hover);
 }
 
 .alert--info {
@@ -223,7 +223,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   white-space: nowrap;
-  background: #eef1ef;
+  background: #f6ecea;
   color: var(--color-text-muted);
 }
 
@@ -235,8 +235,8 @@
 .status-pill--drawn,
 .status-pill--sending,
 .status-pill--complete {
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
+  background: var(--color-pine-soft);
+  color: var(--color-pine);
 }
 
 .exchange-grid {
@@ -292,7 +292,7 @@
   margin-top: 0.55rem;
   padding: 0.55rem 0.7rem;
   border-radius: 10px;
-  background: #f3f8f5;
+  background: linear-gradient(135deg, var(--color-accent-soft), var(--color-pine-soft));
   color: var(--color-heading);
   font-size: 0.95rem;
 }
@@ -474,7 +474,7 @@
   padding: 1rem;
   border: 1px dashed var(--color-border);
   border-radius: 12px;
-  background: #f7faf8;
+  background: linear-gradient(160deg, #fff8f7, #f4faf6);
 }
 
 .match-group-editor fieldset {

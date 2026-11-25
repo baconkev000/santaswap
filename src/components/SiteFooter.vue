@@ -6,7 +6,9 @@ import { RouterLink } from 'vue-router'
   <footer class="site-footer">
     <div class="container site-footer__inner">
       <div class="site-footer__brand">
-        <strong>SantaSwap</strong>
+        <span class="brand-wordmark">
+          <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
+        </span>
         <p>Secret Santa, without the hassle.</p>
       </div>
 

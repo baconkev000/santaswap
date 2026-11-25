@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { canPickContacts, pickContacts } from '@/utils/contacts'
 import type { ParticipantInput } from '@/utils/exchangeRules'
 
 const props = withDefaults(
@@ -10,18 +11,55 @@ const props = withDefaults(
     error?: string
     busy?: boolean
     cancellable?: boolean
+    /** When true, contact picker can return several people at once. */
+    allowMultipleContacts?: boolean
   }>(),
-  { initial: () => ({ name: '', phoneNumber: '' }), error: '', busy: false, cancellable: false },
+  {
+    initial: () => ({ name: '', phoneNumber: '' }),
+    error: '',
+    busy: false,
+    cancellable: false,
+    allowMultipleContacts: true,
+  },
 )
 
-const emit = defineEmits<{ submit: [ParticipantInput]; cancel: [] }>()
+const emit = defineEmits<{
+  submit: [ParticipantInput]
+  contacts: [ParticipantInput[]]
+  cancel: []
+}>()
 
 const name = ref(props.initial.name)
 const phoneNumber = ref(props.initial.phoneNumber)
+const contactsSupported = ref(false)
+const picking = ref(false)
+const pickError = ref('')
+
+onMounted(() => {
+  contactsSupported.value = canPickContacts()
+})
 
 function reset() {
   name.value = ''
   phoneNumber.value = ''
+  pickError.value = ''
+}
+
+async function addFromContacts() {
+  pickError.value = ''
+  picking.value = true
+  try {
+    const result = await pickContacts(props.allowMultipleContacts)
+    if (result.status === 'cancelled') return
+    if (result.status === 'unavailable') {
+      pickError.value = result.message
+      return
+    }
+    emit('contacts', result.contacts)
+    reset()
+  } finally {
+    picking.value = false
+  }
 }
 
 defineExpose({ reset })
@@ -47,12 +85,27 @@ defineExpose({ reset })
         />
       </div>
     </div>
-    <p v-if="error" class="alert alert--error" role="alert">{{ error }}</p>
+    <p v-if="error || pickError" class="alert alert--error" role="alert">{{ error || pickError }}</p>
     <div class="row">
-      <button class="btn btn--secondary btn--small" type="submit" :disabled="busy">{{ submitLabel }}</button>
+      <button
+        v-if="contactsSupported"
+        class="btn btn--secondary btn--small"
+        type="button"
+        :disabled="busy || picking"
+        @click="addFromContacts"
+      >
+        {{ picking ? 'Opening contacts…' : 'Add from contacts' }}
+      </button>
+      <button class="btn btn--secondary btn--small" type="submit" :disabled="busy || picking">
+        {{ submitLabel }}
+      </button>
       <button v-if="cancellable" class="btn btn--ghost btn--small" type="button" @click="emit('cancel')">
         Cancel
       </button>
     </div>
+    <p v-if="contactsSupported" class="field__hint">
+      On supported phones, you can pick people from your contact list. SantaSwap only receives the
+      contacts you choose.
+    </p>
   </form>
 </template>

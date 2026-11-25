@@ -67,6 +67,52 @@ async function handleAdd(input: ParticipantInput) {
   }
 }
 
+async function handleContacts(contacts: ParticipantInput[]) {
+  if (!exchange.value || !contacts.length) return
+  addError.value = ''
+  if (!confirmClearDraw()) return
+
+  const working = exchange.value.participants.map((p) => ({
+    id: p.id,
+    name: p.name,
+    phoneNumber: p.phoneNumber,
+  }))
+  const skipped: string[] = []
+  let added = 0
+  participantBusy.value = true
+  participantMessage.value = ''
+  try {
+    for (const contact of contacts) {
+      const problem = validateParticipant(contact, working)
+      if (problem) {
+        skipped.push(contact.name.trim() || contact.phoneNumber)
+        continue
+      }
+      await addParticipant(exchangeId.value, contact)
+      working.push({
+        id: `pending-${added}`,
+        name: contact.name.trim(),
+        phoneNumber: contact.phoneNumber.trim(),
+      })
+      added += 1
+    }
+    await load()
+    if (added) {
+      participantMessage.value =
+        added === 1
+          ? '1 participant was added from contacts.'
+          : `${added} participants were added from contacts.`
+    }
+    if (skipped.length) {
+      addError.value = `Skipped ${skipped.join(', ')} — already added or missing a valid number.`
+    }
+  } catch (e) {
+    addError.value = e instanceof Error ? e.message : "Couldn't add contacts."
+  } finally {
+    participantBusy.value = false
+  }
+}
+
 async function handleEdit(participant: Participant, input: ParticipantInput) {
   if (!exchange.value) return
   editError.value = validateParticipant(input, exchange.value.participants, participant.id) ?? ''
@@ -211,6 +257,7 @@ async function handleRemove(participant: Participant) {
           :error="addError"
           :busy="participantBusy"
           @submit="handleAdd"
+          @contacts="handleContacts"
         />
 
         <div class="row" style="margin-top: 1.25rem">

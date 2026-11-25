@@ -33,7 +33,9 @@ async function logOut() {
             />
           </svg>
         </span>
-        SantaSwap
+        <span class="brand-wordmark">
+          <span class="brand-wordmark__santa">Santa</span><span class="brand-wordmark__swap">Swap</span>
+        </span>
       </RouterLink>
 
       <button
