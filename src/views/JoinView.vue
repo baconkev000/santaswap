@@ -11,7 +11,7 @@ import {
 } from '@/services/join'
 import { formatBudgetRange, toE164 } from '@/utils/exchangeRules'
 
-type Step = 'phone' | 'loading' | 'pick' | 'assignment' | 'done'
+type Step = 'phone' | 'loading' | 'pick' | 'assignment'
 
 const route = useRoute()
 
@@ -107,11 +107,6 @@ function useDifferentNumber() {
   step.value = 'phone'
 }
 
-function finish() {
-  assignment.value = null
-  step.value = 'done'
-}
-
 onMounted(() => {
   const queryCode = typeof route.query.code === 'string' ? route.query.code : ''
   inviteCode.value = normalizeInviteCode(queryCode)
@@ -203,7 +198,7 @@ onMounted(() => {
       </ul>
       <p class="muted" style="margin-bottom: 1.25rem">Keep it secret!</p>
       <div class="row">
-        <button class="btn btn--secondary" type="button" @click="finish">Hide my assignment</button>
+        <RouterLink class="btn btn--secondary" to="/">Back to SantaSwap</RouterLink>
         <button
           v-if="exchanges.length > 1"
           class="btn btn--ghost btn--small"
@@ -214,15 +209,5 @@ onMounted(() => {
         </button>
       </div>
     </section>
-
-    <div v-else-if="step === 'done'" class="card stack">
-      <p class="alert alert--success" role="status">
-        Your assignment is hidden. Enter your phone number again anytime to see it.
-      </p>
-      <div class="row">
-        <button class="btn" type="button" @click="useDifferentNumber">View again</button>
-        <RouterLink class="btn btn--secondary" to="/">Back to SantaSwap</RouterLink>
-      </div>
-    </div>
   </div>
 </template>
