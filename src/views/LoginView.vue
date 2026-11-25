@@ -72,7 +72,8 @@ async function submit() {
     </form>
 
     <p class="auth-switch">
-      New to SantaSwap? <RouterLink to="/signup">Create an account</RouterLink>
+      Want to organize a gift exchange?
+      <RouterLink to="/signup">Create a new exchange</RouterLink>
     </p>
   </div>
 </template>

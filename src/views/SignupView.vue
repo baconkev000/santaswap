@@ -50,8 +50,8 @@ async function submit() {
   <div class="page page--narrow">
     <div class="page-header">
       <div>
-        <h1>Create your account</h1>
-        <p>Organize Secret Santa exchanges on the web or in the SantaSwap app.</p>
+        <h1>Create a new exchange</h1>
+        <p>Make an organizer account, then set up your Secret Santa and invite everyone with one link.</p>
       </div>
     </div>
 
@@ -92,7 +92,7 @@ async function submit() {
       </div>
 
       <button class="btn btn--block" type="submit" :disabled="submitting">
-        {{ submitting ? 'Creating account…' : 'Create account' }}
+        {{ submitting ? 'Creating…' : 'Create account & continue' }}
       </button>
 
       <p class="muted">

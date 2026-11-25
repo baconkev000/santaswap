@@ -17,7 +17,7 @@ const features = [
   {
     title: 'Share One Invite Link',
     description:
-      "Everyone opens the invite link, enters their phone number, and sees only who they're buying for.",
+      "Everyone opens the link, enters their phone number, and sees only who they're buying for — and can reopen that same link anytime.",
     icon: 'send',
   },
 ] as const
@@ -42,10 +42,14 @@ const { isAuthenticated } = useAuth()
           </p>
           <div class="row">
             <RouterLink class="btn" :to="isAuthenticated ? '/exchanges/new' : '/signup'">
-              Start an exchange
+              Create a new exchange
             </RouterLink>
-            <RouterLink class="btn btn--secondary" to="/join">Join an exchange</RouterLink>
+            <RouterLink class="btn btn--secondary" to="/join">View my assignment</RouterLink>
           </div>
+          <p class="hero__helper muted">
+            Already invited? Use the original link your organizer sent you to see who you're buying for
+            again.
+          </p>
         </div>
       </div>
     </section>

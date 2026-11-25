@@ -215,6 +215,12 @@
   font-size: 1.1rem;
 }
 
+.hero__helper {
+  max-width: 36rem;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

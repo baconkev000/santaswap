@@ -20,8 +20,23 @@ export type ParticipantAssignment = {
 
 const INVITE_CODE_PATTERN = /^[A-HJ-NP-Z2-9]{10}$/
 
+/** Accepts a bare invite code or a full invite URL containing ?code=. */
 export function normalizeInviteCode(value: string): string | null {
-  const code = value.replace(/[\s-]/g, '').toUpperCase()
+  const trimmed = value.trim()
+  if (!trimmed) return null
+
+  try {
+    const url = new URL(trimmed)
+    const fromQuery = url.searchParams.get('code')
+    if (fromQuery) {
+      const code = fromQuery.replace(/[\s-]/g, '').toUpperCase()
+      return INVITE_CODE_PATTERN.test(code) ? code : null
+    }
+  } catch {
+    // Not a URL — treat as a bare code.
+  }
+
+  const code = trimmed.replace(/[\s-]/g, '').toUpperCase()
   return INVITE_CODE_PATTERN.test(code) ? code : null
 }
 

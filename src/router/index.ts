@@ -29,9 +29,9 @@ const router = createRouter({
       name: 'join',
       component: () => import('@/views/JoinView.vue'),
       meta: {
-        title: 'Join a Secret Santa exchange — SantaSwap',
+        title: 'View your Secret Santa assignment — SantaSwap',
         description:
-          'Enter your phone number to privately view your SantaSwap Secret Santa assignment.',
+          'Open your organizer’s invite link again anytime to privately see who you’re buying for.',
       },
     },
     {
@@ -44,7 +44,7 @@ const router = createRouter({
       path: '/signup',
       name: 'signup',
       component: () => import('@/views/SignupView.vue'),
-      meta: { title: 'Create your account — SantaSwap', guestOnly: true },
+      meta: { title: 'Create a new exchange — SantaSwap', guestOnly: true },
     },
     {
       path: '/dashboard',

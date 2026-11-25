@@ -64,8 +64,9 @@ async function copyInvite(event: Event) {
         <div>
           <h2 id="invite-heading">Invite participants</h2>
           <p class="muted">
-            Share this link after names are drawn. Each person enters their phone number to privately see
-            only their own assignment.
+            Share this link only — by text, email, or group chat. Each person opens it, enters their phone
+            number, and privately sees who they're buying for. They can reuse the same link anytime to
+            view their assignment again.
           </p>
         </div>
         <div class="invite-box">
@@ -79,10 +80,9 @@ async function copyInvite(event: Event) {
             @focus="($event.target as HTMLInputElement).select()"
           />
           <button class="btn btn--small" type="button" @click="copyInvite">
-            {{ copied ? 'Copied!' : 'Copy' }}
+            {{ copied ? 'Copied!' : 'Copy link' }}
           </button>
         </div>
-        <p class="muted">Invitation code: <span class="invite-code">{{ exchange.inviteCode }}</span></p>
         <p v-if="!drawn" class="alert alert--info">
           Draw names before sharing. Until then, the link only shows the exchange details.
         </p>

@@ -115,12 +115,18 @@ watch(
             Groups: people aren't matched within the same group
             <template v-if="exchange.allowDoubleGifts"> (double gifts allowed)</template>
           </li>
-          <li v-if="drawn">Invite code: <span class="invite-code">{{ exchange.inviteCode }}</span></li>
         </ul>
-        <p v-if="drawn" class="muted">
-          Invite link:
-          <a :href="inviteUrl">{{ inviteUrl }}</a>
-        </p>
+        <div v-if="drawn" class="invite-box" style="margin-top: 0.5rem">
+          <label for="overview-invite-url" class="sr-only">Invitation link</label>
+          <input
+            id="overview-invite-url"
+            class="input"
+            type="text"
+            :value="inviteUrl"
+            readonly
+            @focus="($event.target as HTMLInputElement).select()"
+          />
+        </div>
       </section>
 
       <section

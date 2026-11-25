@@ -62,11 +62,11 @@ async function logOut() {
         </ul>
         <ul v-else class="nav-links">
           <li><RouterLink to="/">Home</RouterLink></li>
-          <li><RouterLink to="/join">Join Exchange</RouterLink></li>
+          <li><RouterLink to="/join">View assignment</RouterLink></li>
           <li><RouterLink to="/privacy">Privacy</RouterLink></li>
           <li><RouterLink to="/terms">Terms</RouterLink></li>
           <li><RouterLink to="/login">Log in</RouterLink></li>
-          <li><RouterLink class="nav-cta" to="/signup">Sign up</RouterLink></li>
+          <li><RouterLink class="nav-cta" to="/signup">Create exchange</RouterLink></li>
         </ul>
       </nav>
     </div>
