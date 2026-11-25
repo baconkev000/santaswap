@@ -52,20 +52,26 @@ onMounted(load)
       </div>
 
       <ul v-else class="exchange-grid">
-        <li v-for="exchange in exchanges" :key="exchange.id">
-          <RouterLink class="exchange-card" :to="`/exchanges/${exchange.id}`">
-            <div class="exchange-card__top">
-              <h3>{{ exchange.name }}</h3>
-              <span class="status-pill" :class="`status-pill--${exchange.status}`">
-                {{ formatStatusLabel(exchange.status) }}
-              </span>
-            </div>
-            <ul class="meta-list">
-              <li>{{ exchange.exchangeDate || 'No date set' }}</li>
-              <li>{{ formatBudgetRange(exchange.minimumBudget, exchange.maximumBudget) ?? 'No budget set' }}</li>
-              <li>{{ formatParticipantCount(exchange.participantCount) }}</li>
-            </ul>
-          </RouterLink>
+        <li v-for="exchange in exchanges" :key="exchange.id" class="exchange-card">
+          <div class="exchange-card__top">
+            <h3>{{ exchange.name }}</h3>
+            <span class="status-pill" :class="`status-pill--${exchange.status}`">
+              {{ formatStatusLabel(exchange.status) }}
+            </span>
+          </div>
+          <ul class="meta-list">
+            <li>{{ exchange.exchangeDate || 'No date set' }}</li>
+            <li>{{ formatBudgetRange(exchange.minimumBudget, exchange.maximumBudget) ?? 'No budget set' }}</li>
+            <li>{{ formatParticipantCount(exchange.participantCount) }}</li>
+          </ul>
+          <div class="exchange-card__actions">
+            <RouterLink class="btn btn--secondary btn--small" :to="`/exchanges/${exchange.id}/view`">
+              View
+            </RouterLink>
+            <RouterLink class="btn btn--small" :to="`/exchanges/${exchange.id}/details`">
+              Edit
+            </RouterLink>
+          </div>
         </li>
       </ul>
     </section>

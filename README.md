@@ -1,72 +1,37 @@
-# SantaSwap Website
+# SantaSwap website
 
-Website for **SantaSwap**, the Secret Santa app. It shares the mobile app's
-Supabase backend (same auth, database, and Edge Functions).
+Vue frontend + Express API backed by Render Postgres.
 
-## Routes
+## Local setup
 
-Public:
+1. Create `server/.env` from `server/.env.example` and set:
 
-- `/` — landing page
-- `/join?code=XXXXXXXXXX` — participant join flow (phone verification, then the participant's own assignment)
-- `/login`, `/signup`
-- `/privacy`, `/terms` — Privacy Policy and Terms (app-store and Twilio A2P 10DLC compliance)
+   ```env
+   DATABASE_URL=postgresql://USERNAME:PASSWORD@YOUR_DB_HOST/santaswap
+   JWT_SECRET=long-random-string
+   ```
 
-Signed in (organizers):
+2. Install and migrate:
 
-- `/dashboard` (alias `/exchanges`) — My Exchanges
-- `/exchanges/new` — create an exchange
-- `/exchanges/:id` — manage participants, draw names, copy the invite link
-- `/account`
+   ```bash
+   npm install
+   npm --prefix server install
+   npm run db:migrate
+   ```
 
-## Stack
+3. Run the API and website together:
 
-- Vue 3, Vite, TypeScript, Vue Router
-- `@supabase/supabase-js` (auth, organizer data via RLS, Edge Functions)
+   ```bash
+   npm run dev:all
+   ```
 
-## Environment
+   - Website: http://localhost:5173  
+   - API: http://localhost:3001 (`/api` is proxied by Vite)
 
-Copy `.env.example` to `.env.local` and use the **same** Supabase project URL and
-publishable key as the mobile app:
+## Production
 
-```sh
-VITE_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_PUBLISHABLE_KEY
-```
+- Deploy the `server/` folder as a **Render Web Service** (`npm start`, Node).
+- Set the same env vars there (`DATABASE_URL`, `JWT_SECRET`, `CORS_ORIGIN`).
+- On the static host for the Vue app, set `VITE_API_URL` to that Render API URL, then rebuild.
 
-Set the same two variables in your hosting provider's build settings. Never put
-Twilio credentials or the service-role key in `VITE_*` variables — they are bundled
-into the public site.
-
-## Backend requirements
-
-The backend lives in the mobile repo (`supabase/`). The website needs:
-
-- Migrations `20261004000000_group_invite_codes.sql`,
-  `20261004120000_participant_verification.sql`, and
-  `20261004130000_twilio_verify.sql` applied
-- Edge Functions `draw-exchange` and `join-exchange` deployed
-- Supabase Auth → URL Configuration: add `https://santaswap.us/dashboard` (and your
-  local dev URL) to the redirect allow list for sign-up confirmation emails
-
-## Setup
-
-```sh
-npm install
-npm run dev
-```
-
-### Production build
-
-```sh
-npm run build
-npm run preview
-```
-
-## Deployment notes
-
-This is a static SPA. Hosting providers need an SPA fallback so routes like `/join`,
-`/dashboard`, and `/privacy` resolve to `index.html`.
-
-- Netlify / Cloudflare Pages: `public/_redirects`
-- Vercel: `vercel.json`
+Never put `DATABASE_URL` or `JWT_SECRET` in `VITE_*` variables.

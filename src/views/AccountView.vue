@@ -12,8 +12,7 @@ const message = ref('')
 const error = ref('')
 
 watchEffect(() => {
-  const current = user.value?.user_metadata?.name
-  name.value = typeof current === 'string' ? current : ''
+  name.value = user.value?.name?.trim() || ''
 })
 
 async function save() {

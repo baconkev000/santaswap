@@ -17,7 +17,7 @@ const features = [
   {
     title: 'Share One Invite Link',
     description:
-      "Everyone verifies their phone number on the SantaSwap website and sees only who they're buying for.",
+      "Everyone opens the invite link, enters their phone number, and sees only who they're buying for.",
     icon: 'send',
   },
 ] as const
@@ -35,7 +35,7 @@ const { isAuthenticated } = useAuth()
           <p class="hero__tagline">Secret Santa, without the hassle.</p>
           <p class="hero__lead">
             Create a gift exchange, add your friends and family, draw names,
-            and share one invite link. Everyone verifies their phone number to
+            and share one invite link. Everyone enters their phone number to
             privately see who they're buying for.
           </p>
           <div class="row">

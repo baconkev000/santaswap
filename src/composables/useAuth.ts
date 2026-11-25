@@ -1,97 +1,118 @@
 import { computed, ref } from 'vue'
-import type { AuthError, Session } from '@supabase/supabase-js'
-import { getSupabase, isSupabaseConfigured } from '@/lib/supabase'
+import { api, ApiError, getToken, setToken } from '@/lib/api'
 
-const session = ref<Session | null>(null)
+export type AuthUser = {
+  id: string
+  email: string
+  name: string | null
+}
+
+const user = ref<AuthUser | null>(null)
 const ready = ref(false)
 let initPromise: Promise<void> | null = null
 
-/** Resolves once the persisted session (if any) has been restored. Safe to call repeatedly. */
+function decodeTokenUser(token: string): AuthUser | null {
+  try {
+    const [, payload] = token.split('.')
+    if (!payload) return null
+    const json = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/'))) as {
+      sub?: string
+      email?: string
+      name?: string | null
+      exp?: number
+    }
+    if (!json.sub || !json.email) return null
+    if (typeof json.exp === 'number' && json.exp * 1000 <= Date.now()) return null
+    return { id: json.sub, email: json.email, name: json.name ?? null }
+  } catch {
+    return null
+  }
+}
+
+/** Restores the session from localStorage immediately — no network wait. */
 export function initAuth(): Promise<void> {
   if (initPromise) return initPromise
 
   initPromise = (async () => {
-    if (!isSupabaseConfigured) {
-      ready.value = true
-      return
+    const token = getToken()
+    if (token) {
+      const cached = decodeTokenUser(token)
+      if (cached) user.value = cached
+      else setToken(null)
     }
-    const supabase = getSupabase()
-    const { data } = await supabase.auth.getSession()
-    session.value = data.session
-    supabase.auth.onAuthStateChange((_event, next) => {
-      session.value = next
-    })
     ready.value = true
   })()
 
   return initPromise
 }
 
-function friendlyAuthError(error: AuthError): string {
-  const message = error.message.toLowerCase()
-  if (message.includes('invalid login credentials')) return 'Email or password is incorrect.'
-  if (message.includes('email not confirmed')) {
-    return 'Please confirm your email address, then log in.'
-  }
-  if (message.includes('already registered') || message.includes('already been registered')) {
-    return 'An account with this email already exists. Try logging in instead.'
-  }
-  if (message.includes('rate limit')) return 'Too many attempts. Please wait a minute and try again.'
-  if (message.includes('password')) return error.message
+function friendlyAuthError(error: unknown): string {
+  if (error instanceof ApiError) return error.message
   return 'Something went wrong. Please try again.'
 }
 
 export function useAuth() {
-  const user = computed(() => session.value?.user ?? null)
-  const isAuthenticated = computed(() => Boolean(session.value))
+  const isAuthenticated = computed(() => Boolean(user.value))
   const displayName = computed(() => {
-    const name = user.value?.user_metadata?.name
+    const name = user.value?.name
     return typeof name === 'string' && name.trim() ? name.trim() : (user.value?.email ?? '')
   })
 
   async function signIn(email: string, password: string): Promise<void> {
-    const { error } = await getSupabase().auth.signInWithPassword({
-      email: email.trim(),
-      password,
-    })
-    if (error) throw new Error(friendlyAuthError(error))
+    try {
+      const result = await api<{ token: string; user: AuthUser }>('/api/auth/login', {
+        body: { email, password },
+        auth: false,
+      })
+      setToken(result.token)
+      user.value = result.user
+    } catch (error) {
+      throw new Error(friendlyAuthError(error))
+    }
   }
 
-  /** Returns true when Supabase requires email confirmation before the first login. */
+  /** Always signs the user in immediately (no email confirmation step). */
   async function signUp(name: string, email: string, password: string): Promise<boolean> {
-    const { data, error } = await getSupabase().auth.signUp({
-      email: email.trim(),
-      password,
-      options: {
-        data: { name: name.trim() },
-        emailRedirectTo: `${window.location.origin}/dashboard`,
-      },
-    })
-    if (error) throw new Error(friendlyAuthError(error))
-    return !data.session
+    try {
+      const result = await api<{ token: string; user: AuthUser }>('/api/auth/signup', {
+        body: { name, email, password },
+        auth: false,
+      })
+      setToken(result.token)
+      user.value = result.user
+      return false
+    } catch (error) {
+      throw new Error(friendlyAuthError(error))
+    }
   }
 
   async function signOut(): Promise<void> {
-    await getSupabase().auth.signOut()
-    session.value = null
+    setToken(null)
+    user.value = null
   }
 
   async function updateName(name: string): Promise<void> {
-    const supabase = getSupabase()
-    const trimmed = name.trim()
-    const userId = user.value?.id
-    if (!userId) throw new Error('Please log in again.')
-
-    const { error: profileError } = await supabase
-      .from('profiles')
-      .update({ name: trimmed })
-      .eq('id', userId)
-    if (profileError) throw new Error("Couldn't update your name. Please try again.")
-
-    const { data, error } = await supabase.auth.updateUser({ data: { name: trimmed } })
-    if (error) throw new Error(friendlyAuthError(error))
-    if (data.user && session.value) session.value = { ...session.value, user: data.user }
+    try {
+      const result = await api<{ token: string; user: AuthUser }>('/api/auth/me', {
+        method: 'PATCH',
+        body: { name },
+      })
+      setToken(result.token)
+      user.value = result.user
+    } catch (error) {
+      throw new Error(friendlyAuthError(error))
+    }
   }
 
-  return { session, user, ready, isAuthenticated, displayName, signIn, signUp, signOut, updateName }
+  return {
+    session: computed(() => (user.value ? { user: user.value } : null)),
+    user,
+    ready,
+    isAuthenticated,
+    displayName,
+    signIn,
+    signUp,
+    signOut,
+    updateName,
+  }
 }

@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "npm --prefix server run dev",
+    "dev:all": "run-p dev dev:api",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build"
+    "type-check": "vue-tsc --build",
+    "db:migrate": "npm --prefix server run db:migrate"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.117.2",
     "vue": "^3.5.42",
     "vue-router": "^4.6.4"
   },

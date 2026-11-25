@@ -31,7 +31,7 @@ const router = createRouter({
       meta: {
         title: 'Join a Secret Santa exchange — SantaSwap',
         description:
-          'Verify your phone number to privately view your SantaSwap Secret Santa assignment.',
+          'Enter your phone number to privately view your SantaSwap Secret Santa assignment.',
       },
     },
     {
@@ -55,15 +55,66 @@ const router = createRouter({
     },
     {
       path: '/exchanges/new',
-      name: 'exchange-new',
-      component: () => import('@/views/CreateExchangeView.vue'),
-      meta: { title: 'Create an exchange — SantaSwap', requiresAuth: true },
+      redirect: '/exchanges/new/details',
+    },
+    {
+      path: '/exchanges/new/details',
+      name: 'exchange-new-details',
+      component: () => import('@/views/exchange/CreateDetailsView.vue'),
+      meta: { title: 'Exchange details — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/new/participants',
+      name: 'exchange-new-participants',
+      component: () => import('@/views/exchange/CreateParticipantsView.vue'),
+      meta: { title: 'Participants — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/new/groups',
+      name: 'exchange-new-groups',
+      component: () => import('@/views/exchange/CreateGroupsView.vue'),
+      meta: { title: 'Groups — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/:id/view',
+      name: 'exchange-view',
+      component: () => import('@/views/exchange/ExchangeOverviewView.vue'),
+      meta: { title: 'View exchange — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/:id/details',
+      name: 'exchange-details',
+      component: () => import('@/views/exchange/ExchangeDetailsView.vue'),
+      meta: { title: 'Exchange details — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/:id/participants',
+      name: 'exchange-participants',
+      component: () => import('@/views/exchange/ExchangeParticipantsView.vue'),
+      meta: { title: 'Participants — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/:id/groups',
+      name: 'exchange-groups',
+      component: () => import('@/views/exchange/ExchangeGroupsView.vue'),
+      meta: { title: 'Groups — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/:id/draw',
+      name: 'exchange-draw',
+      component: () => import('@/views/exchange/ExchangeDrawView.vue'),
+      meta: { title: 'Draw names — SantaSwap', requiresAuth: true },
+    },
+    {
+      path: '/exchanges/:id/invite',
+      name: 'exchange-invite',
+      component: () => import('@/views/exchange/ExchangeInviteView.vue'),
+      meta: { title: 'Invite participants — SantaSwap', requiresAuth: true },
     },
     {
       path: '/exchanges/:id',
       name: 'exchange',
-      component: () => import('@/views/ExchangeView.vue'),
-      meta: { title: 'Manage exchange — SantaSwap', requiresAuth: true },
+      redirect: (to) => `/exchanges/${to.params.id}/details`,
     },
     {
       path: '/account',
