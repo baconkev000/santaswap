@@ -144,7 +144,7 @@ onMounted(() => {
         </span>
       </div>
       <button class="btn btn--block" type="submit" :disabled="busy">
-        {{ busy ? 'Looking up…' : 'Find my exchanges' }}
+        {{ busy ? 'Looking up…' : 'Find my exchange(s)' }}
       </button>
       <p class="muted">
         Organizing instead?
